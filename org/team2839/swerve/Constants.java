@@ -47,9 +47,9 @@ public class Constants {
 	public static final double LR_SWERVE_SPIN_OFFSET = LR_SWERVE_OFFSET - 1.92;
 
 	// Speed multipliers
-	public static final double SPIN_MULTIPLIER = 0.15;
-	public static final double DRIVE_MULTIPLIER = 0.4;
-	public static final double SWERVE_MULTIPLIER = -0.15;
+	public static final double SPIN_MULTIPLIER = 0.5;
+	public static final double DRIVE_MULTIPLIER = 1.0;
+	public static final double SWERVE_MULTIPLIER = -0.5;
 
 	// Miscellaneous
 	public static final double MAX_MOTOR_VOLTAGE = 5.0;

@@ -2,8 +2,6 @@ package org.team2839.swerve.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.team2839.swerve.Constants;
-import org.team2839.swerve.OI;
 import org.team2839.swerve.Robot;
 
 /**

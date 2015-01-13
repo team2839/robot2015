@@ -41,7 +41,7 @@ public class SwerveSetpointCommand extends Command {
 		Robot.lRSPIDSubsystem.setSetpoint(setpoint);
 
 		double speed = OI.driveJoystick.getMagnitude()
-				* Constants.SWERVE_MULTIPLIER;
+				* Constants.SWERVE_MULTIPLIER * OI.getNormalThrottle();
 		Robot.lFDPIDSubsystem.enable();
 		Robot.lFDPIDSubsystem.setSetpoint(speed); // *1.4 for full speed going
 													// straight

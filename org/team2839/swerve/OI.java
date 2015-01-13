@@ -48,7 +48,7 @@ public class OI {
 	public JoystickButton startSetpointButton;
 
 	public static final Joystick driveJoystick = new Joystick(
-			Constants.DRIVE_JOYSTICK);;
+			Constants.DRIVE_JOYSTICK);
 
 	public OI() {
 		startSetpointButton = new JoystickButton(driveJoystick,
@@ -74,6 +74,10 @@ public class OI {
 				new SpinSetpointCommand());
 		SmartDashboard.putData("Swerve Setpoint Command",
 				new SwerveSetpointCommand());
+	}
+	
+	public static double getNormalThrottle() {
+		return ((driveJoystick.getThrottle() + 1.0) / 2.0);
 	}
 
 }

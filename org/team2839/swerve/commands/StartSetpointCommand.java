@@ -39,7 +39,7 @@ public class StartSetpointCommand extends Command {
 		Robot.lRSPIDSubsystem.setSetpoint(Constants.LR_SWERVE_OFFSET);
 
 		double speed = OI.driveJoystick.getY()
-				* Constants.DRIVE_MULTIPLIER;
+				* Constants.DRIVE_MULTIPLIER * OI.getNormalThrottle();
 		Robot.lFDPIDSubsystem.enable();
 		Robot.lFDPIDSubsystem.setSetpoint(speed);
 		Robot.rFDPIDSubsystem.enable();

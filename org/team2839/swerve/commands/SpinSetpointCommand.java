@@ -42,7 +42,7 @@ public class SpinSetpointCommand extends Command {
 		Robot.lRSPIDSubsystem.enable();
 		Robot.lRSPIDSubsystem.setSetpoint(Constants.LR_SWERVE_SPIN_OFFSET);
 
-		double speed = OI.driveJoystick.getTwist() * Constants.SPIN_MULTIPLIER;
+		double speed = OI.driveJoystick.getTwist() * Constants.SPIN_MULTIPLIER * OI.getNormalThrottle();
 		Robot.lFDPIDSubsystem.enable();
 		Robot.lFDPIDSubsystem.setSetpoint(speed);
 		Robot.rFDPIDSubsystem.enable();
