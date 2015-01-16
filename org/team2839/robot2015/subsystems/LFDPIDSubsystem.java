@@ -1,4 +1,4 @@
-package org.team2839.swerve.subsystems;
+package org.team2839.robot2015.subsystems;
 
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedController;
 
-import org.team2839.swerve.RobotMap;
+import org.team2839.robot2015.RobotMap;
 
 /**
  *

@@ -1,10 +1,10 @@
-package org.team2839.swerve;
+package org.team2839.robot2015;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
-import org.team2839.swerve.commands.*;
+import org.team2839.robot2015.commands.*;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -48,23 +48,24 @@ public class OI {
 	public JoystickButton startSetpointButton;
 
 	public static final Joystick driveJoystick = new Joystick(
-			Constants.DRIVE_JOYSTICK);
+			GeneralConstants.DRIVE_JOYSTICK);
 
 	public OI() {
 		startSetpointButton = new JoystickButton(driveJoystick,
-				Constants.START_SETPOINT_BUTTON);
+				GeneralConstants.START_SETPOINT_BUTTON);
 		startSetpointButton.whileHeld(new StartSetpointCommand());
 		startSetpointButton.whenReleased(new StopSetpointCommand());
 		spinSetpointButton = new JoystickButton(driveJoystick,
-				Constants.SPIN_SETPOINT_BUTTON); // squeeze trigger & twist
-													// joystick to spin robot
+				GeneralConstants.SPIN_SETPOINT_BUTTON); // squeeze trigger &
+														// twist
+		// joystick to spin robot
 		spinSetpointButton.whileHeld(new SpinSetpointCommand());
-		spinSetpointButton.whenReleased(new SwerveSetpointCommand()); // press
-																		// once
-																		// to
-																		// start
-																		// swerve
-																		// mode
+		spinSetpointButton.whenReleased(new SwerveModeCommand()); // press
+																	// once
+																	// to
+																	// start
+																	// swerve
+																	// mode
 
 		// SmartDashboard Buttons
 		SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
@@ -73,11 +74,11 @@ public class OI {
 		SmartDashboard.putData("Spin Setpoint Command",
 				new SpinSetpointCommand());
 		SmartDashboard.putData("Swerve Setpoint Command",
-				new SwerveSetpointCommand());
+				new SwerveModeCommand());
 	}
-	
+
 	public static double getNormalThrottle() {
-		return ((driveJoystick.getThrottle() + 1.0) / 2.0);
+		return (((driveJoystick.getThrottle() * -1.0) + 1.0) / 2.0);
 	}
 
 }

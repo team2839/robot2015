@@ -1,17 +1,17 @@
-package org.team2839.swerve.commands;
+package org.team2839.robot2015.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.team2839.swerve.Constants;
-import org.team2839.swerve.OI;
-import org.team2839.swerve.Robot;
+import org.team2839.robot2015.DriveTrainConstants;
+import org.team2839.robot2015.OI;
+import org.team2839.robot2015.Robot;
 
 /**
  *
  */
-public class StartSetpointCommand extends Command {
+public class SpinSetpointCommand extends Command {
 
-	public StartSetpointCommand() {
+	public SpinSetpointCommand() {
 		requires(Robot.lFSPIDSubsystem);
 		requires(Robot.rFSPIDSubsystem);
 		requires(Robot.rRSPIDSubsystem);
@@ -30,16 +30,24 @@ public class StartSetpointCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		Robot.lFSPIDSubsystem.enable();
-		Robot.lFSPIDSubsystem.setSetpoint(Constants.LF_SWERVE_OFFSET);
+		Robot.lFSPIDSubsystem
+				.setSetpoint(DriveTrainConstants.LF_SWERVE_SPIN_OFFSET); // increase
+		// #
+		// to
+		// increase
+		// CCW
 		Robot.rFSPIDSubsystem.enable();
-		Robot.rFSPIDSubsystem.setSetpoint(Constants.RF_SWERVE_OFFSET);
+		Robot.rFSPIDSubsystem
+				.setSetpoint(DriveTrainConstants.RF_SWERVE_SPIN_OFFSET);
 		Robot.rRSPIDSubsystem.enable();
-		Robot.rRSPIDSubsystem.setSetpoint(Constants.RR_SWERVE_OFFSET);
+		Robot.rRSPIDSubsystem
+				.setSetpoint(DriveTrainConstants.RR_SWERVE_SPIN_OFFSET);
 		Robot.lRSPIDSubsystem.enable();
-		Robot.lRSPIDSubsystem.setSetpoint(Constants.LR_SWERVE_OFFSET);
+		Robot.lRSPIDSubsystem
+				.setSetpoint(DriveTrainConstants.LR_SWERVE_SPIN_OFFSET);
 
-		double speed = OI.driveJoystick.getY()
-				* Constants.DRIVE_MULTIPLIER * OI.getNormalThrottle();
+		double speed = OI.driveJoystick.getTwist()
+				* DriveTrainConstants.SPIN_MULTIPLIER * OI.getNormalThrottle();
 		Robot.lFDPIDSubsystem.enable();
 		Robot.lFDPIDSubsystem.setSetpoint(speed);
 		Robot.rFDPIDSubsystem.enable();
@@ -52,8 +60,8 @@ public class StartSetpointCommand extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		// return Robot.lFSPIDSubsystem.onTarget();
-		return false; // changed to false to keep this command running
+		// return Robot.rFSPIDSubsystem.onTarget();
+		return false;
 	}
 
 	// Called once after isFinished returns true

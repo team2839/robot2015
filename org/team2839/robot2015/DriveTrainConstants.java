@@ -1,6 +1,6 @@
-package org.team2839.swerve;
+package org.team2839.robot2015;
 
-public class Constants {
+public class DriveTrainConstants {
 
 	// Slots on the Sideboard/RoboRIO
 	public static final int LF_SWERVE_TALON = 0;
@@ -27,13 +27,8 @@ public class Constants {
 	public static final int RR_SWERVE_POT = 2;
 	public static final int LR_SWERVE_POT = 3;
 
-	public static final int RANGE_FINDER = 8;
-	public static final int RANGE_FINDER_GYRO = 9;
-
-	// Operator Interface slots
-	public static final int DRIVE_JOYSTICK = 0;
-	public static final int START_SETPOINT_BUTTON = 2;
-	public static final int SPIN_SETPOINT_BUTTON = 1;
+	public static final int RANGE_FINDER = 2;
+	public static final int RANGE_FINDER_GYRO = 1; // Must be in 1 or 2?
 
 	// Swerve offsets
 	public static final double LF_SWERVE_OFFSET = 2.48;
@@ -51,7 +46,7 @@ public class Constants {
 	public static final double DRIVE_MULTIPLIER = 1.0;
 	public static final double SWERVE_MULTIPLIER = -0.5;
 
-	// Miscellaneous
-	public static final double MAX_MOTOR_VOLTAGE = 5.0;
+	// Misc.
+	public static final double QUAD_ENCODER_DISTANCE_PER_PULSE = 0.01;
 
 }

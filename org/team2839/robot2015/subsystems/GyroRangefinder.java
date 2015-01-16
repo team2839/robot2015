@@ -1,11 +1,11 @@
-package org.team2839.swerve.subsystems;
+package org.team2839.robot2015.subsystems;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Gyro;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
-import org.team2839.swerve.RobotMap;
+import org.team2839.robot2015.RobotMap;
 
 /**
  *

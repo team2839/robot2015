@@ -1,17 +1,17 @@
-package org.team2839.swerve.commands;
+package org.team2839.robot2015.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-import org.team2839.swerve.Constants;
-import org.team2839.swerve.OI;
-import org.team2839.swerve.Robot;
+import org.team2839.robot2015.DriveTrainConstants;
+import org.team2839.robot2015.OI;
+import org.team2839.robot2015.Robot;
 
 /**
  *
  */
-public class SwerveSetpointCommand extends Command {
+public class StartSetpointCommand extends Command {
 
-	public SwerveSetpointCommand() {
+	public StartSetpointCommand() {
 		requires(Robot.lFSPIDSubsystem);
 		requires(Robot.rFSPIDSubsystem);
 		requires(Robot.rRSPIDSubsystem);
@@ -29,22 +29,19 @@ public class SwerveSetpointCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		double setpoint = joystickDirectionToVoltage(OI.driveJoystick
-				.getDirectionDegrees());
 		Robot.lFSPIDSubsystem.enable();
-		Robot.lFSPIDSubsystem.setSetpoint(setpoint);
+		Robot.lFSPIDSubsystem.setSetpoint(DriveTrainConstants.LF_SWERVE_OFFSET);
 		Robot.rFSPIDSubsystem.enable();
-		Robot.rFSPIDSubsystem.setSetpoint(setpoint);
+		Robot.rFSPIDSubsystem.setSetpoint(DriveTrainConstants.RF_SWERVE_OFFSET);
 		Robot.rRSPIDSubsystem.enable();
-		Robot.rRSPIDSubsystem.setSetpoint(setpoint);
+		Robot.rRSPIDSubsystem.setSetpoint(DriveTrainConstants.RR_SWERVE_OFFSET);
 		Robot.lRSPIDSubsystem.enable();
-		Robot.lRSPIDSubsystem.setSetpoint(setpoint);
+		Robot.lRSPIDSubsystem.setSetpoint(DriveTrainConstants.LR_SWERVE_OFFSET);
 
-		double speed = OI.driveJoystick.getMagnitude()
-				* Constants.SWERVE_MULTIPLIER * OI.getNormalThrottle();
+		double speed = OI.driveJoystick.getY()
+				* DriveTrainConstants.DRIVE_MULTIPLIER * OI.getNormalThrottle();
 		Robot.lFDPIDSubsystem.enable();
-		Robot.lFDPIDSubsystem.setSetpoint(speed); // *1.4 for full speed going
-													// straight
+		Robot.lFDPIDSubsystem.setSetpoint(speed);
 		Robot.rFDPIDSubsystem.enable();
 		Robot.rFDPIDSubsystem.setSetpoint(speed);
 		Robot.rRDPIDSubsystem.enable();
@@ -66,11 +63,5 @@ public class SwerveSetpointCommand extends Command {
 	// Called when another command which requires one or more of the same
 	// subsystems is scheduled to run
 	protected void interrupted() {
-	}
-
-	private double joystickDirectionToVoltage(double joystickDirection) {
-		double degrees = joystickDirection + 180.0;
-		double circlePart = 360.0 / Constants.MAX_MOTOR_VOLTAGE;
-		return Constants.MAX_MOTOR_VOLTAGE - (degrees / circlePart);
 	}
 }

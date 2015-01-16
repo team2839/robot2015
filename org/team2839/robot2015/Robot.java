@@ -1,4 +1,4 @@
-package org.team2839.swerve;
+package org.team2839.robot2015;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
@@ -6,8 +6,8 @@ import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 
-import org.team2839.swerve.commands.*;
-import org.team2839.swerve.subsystems.*;
+import org.team2839.robot2015.commands.*;
+import org.team2839.robot2015.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -61,8 +61,6 @@ public class Robot extends IterativeRobot {
 		server.setQuality(50);
 		// the camera name (ex "cam0") can be found through the roborio web
 		// interface
-		server.startAutomaticCapture("cam0");
-		server.startAutomaticCapture("cam1");
 		server.startAutomaticCapture("cam2");
 	}
 
