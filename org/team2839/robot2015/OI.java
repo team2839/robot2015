@@ -68,7 +68,8 @@ public class OI {
 																	// mode
 
 		// SmartDashboard Buttons
-		SmartDashboard.putData("Autonomous Command", new AutonomousCommandGroup());
+		SmartDashboard.putData("Autonomous Command",
+				new AutonomousCommandGroup());
 		SmartDashboard.putData("Start Setpoint Command",
 				new StartSetpointCommand());
 		SmartDashboard.putData("Spin Setpoint Command",

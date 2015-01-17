@@ -4,6 +4,7 @@ import org.team2839.robot2015.RobotMap;
 
 public class RRDPIDSubsystem extends DriveSubsystem {
 	public RRDPIDSubsystem() {
-		super("RRDPIDSubsystem", RobotMap.rRDPIDSubsystemRRDEncoder, RobotMap.rRDPIDSubsystemRRDSpeedController);
+		super("RRDPIDSubsystem", RobotMap.rRDPIDSubsystemRRDEncoder,
+				RobotMap.rRDPIDSubsystemRRDSpeedController);
 	}
 }

@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class AutonomousMoveLeftCommand extends Command {
-	
+
 	private Encoder lFDEncoder;
 
 	@Override
@@ -22,16 +22,18 @@ public class AutonomousMoveLeftCommand extends Command {
 		requires(Robot.rFDPIDSubsystem);
 		requires(Robot.rRDPIDSubsystem);
 		requires(Robot.lRDPIDSubsystem);
-		
+
 		lFDEncoder = Robot.lFDPIDSubsystem.getEncoder();
 		lFDEncoder.reset();
 	}
 
 	@Override
 	protected void execute() {
-		double direction = Utils.directionToVoltage(DriveTrainConstants.SWERVE_LEFT);
+		double direction = Utils
+				.directionToVoltage(DriveTrainConstants.SWERVE_LEFT);
 		GenericCommands.setSwerveSetpoint(direction);
-		GenericCommands.setDriveSetpoint(GeneralConstants.AUTONOMOUS_DRIVE_SPEED);
+		GenericCommands
+				.setDriveSetpoint(GeneralConstants.AUTONOMOUS_DRIVE_SPEED);
 	}
 
 	@Override
