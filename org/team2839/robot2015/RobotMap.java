@@ -53,7 +53,7 @@ public class RobotMap {
 		LiveWindow.addSensor("LFD PID Subsystem", "LFD Encoder",
 				lFDPIDSubsystemLFDEncoder);
 		lFDPIDSubsystemLFDEncoder
-				.setDistancePerPulse(DriveTrainConstants.QUAD_ENCODER_DISTANCE_PER_PULSE); // (1.0);
+				.setDistancePerPulse(GeneralConstants.DISTANCE_PER_PULSE); // (1.0);
 		lFDPIDSubsystemLFDEncoder
 				.setPIDSourceParameter(PIDSourceParameter.kRate);
 		lFDPIDSubsystemLFDSpeedController = new Talon(
@@ -77,7 +77,7 @@ public class RobotMap {
 		LiveWindow.addSensor("RFD PID Subsystem", "RFD Encoder",
 				rFDPIDSubsystemRFDEncoder);
 		rFDPIDSubsystemRFDEncoder
-				.setDistancePerPulse(DriveTrainConstants.QUAD_ENCODER_DISTANCE_PER_PULSE);
+				.setDistancePerPulse(GeneralConstants.DISTANCE_PER_PULSE);
 		rFDPIDSubsystemRFDEncoder
 				.setPIDSourceParameter(PIDSourceParameter.kRate);
 		rFDPIDSubsystemRFDSpeedController = new Talon(
@@ -101,7 +101,7 @@ public class RobotMap {
 		LiveWindow.addSensor("RRD PID Subsystem", "RRD Encoder",
 				rRDPIDSubsystemRRDEncoder);
 		rRDPIDSubsystemRRDEncoder
-				.setDistancePerPulse(DriveTrainConstants.QUAD_ENCODER_DISTANCE_PER_PULSE);
+				.setDistancePerPulse(GeneralConstants.DISTANCE_PER_PULSE);
 		rRDPIDSubsystemRRDEncoder
 				.setPIDSourceParameter(PIDSourceParameter.kRate);
 		rRDPIDSubsystemRRDSpeedController = new Talon(
@@ -125,7 +125,7 @@ public class RobotMap {
 		LiveWindow.addSensor("LRD PID Subsystem", "LRD Encoder",
 				lRDPIDSubsystemLRDEncoder);
 		lRDPIDSubsystemLRDEncoder
-				.setDistancePerPulse(DriveTrainConstants.QUAD_ENCODER_DISTANCE_PER_PULSE);
+				.setDistancePerPulse(GeneralConstants.DISTANCE_PER_PULSE);
 		lRDPIDSubsystemLRDEncoder
 				.setPIDSourceParameter(PIDSourceParameter.kRate);
 		lRDPIDSubsystemLRDSpeedController = new Talon(
