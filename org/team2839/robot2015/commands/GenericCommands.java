@@ -16,9 +16,6 @@ public class GenericCommands {
 	}
 
 	public static final void setDriveSetpoint(double setpoint) {
-		// 1.4 for full speed going straight
-		// Because joystick.getMagnitude() == sqrt(2) when the
-		// joystick is pushed into the corner ( sqrt(1^2 + 1^2) )
 		Robot.lFDPIDSubsystem.enable();
 		Robot.lFDPIDSubsystem.setSetpoint(setpoint);
 		Robot.rFDPIDSubsystem.enable();

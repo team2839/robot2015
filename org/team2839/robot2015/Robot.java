@@ -55,7 +55,7 @@ public class Robot extends IterativeRobot {
 		oi = new OI();
 
 		// instantiate the command used for the autonomous period
-		autonomousCommand = new AutonomousCommand();
+		autonomousCommand = new AutonomousCommandGroup();
 
 		server = CameraServer.getInstance();
 		server.setQuality(50);

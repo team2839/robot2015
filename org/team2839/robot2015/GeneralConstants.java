@@ -27,8 +27,13 @@ public class GeneralConstants {
 
 	// Miscellaneous
 	public static final double MAX_MOTOR_VOLTAGE = 5.0;
+	
 	public static final double DISTANCE_PER_REVOLUTION = 13.4; // inches
 	public static final double PULSES_PER_REVOLUTION = 200.0;
 	public static final double DISTANCE_PER_PULSE = DISTANCE_PER_REVOLUTION / PULSES_PER_REVOLUTION;
+	
+	// Autonomous Stuff
+	public static final double DISTANCE_BETWEEN_TOTES = 85.0; // inches
+	public static final double AUTONOMOUS_DRIVE_SPEED = 0.5; // 0.0 to 1.0
 
 }

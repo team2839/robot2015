@@ -53,7 +53,7 @@ public class RobotMap {
 		LiveWindow.addSensor("LFD PID Subsystem", "LFD Encoder",
 				lFDPIDSubsystemLFDEncoder);
 		lFDPIDSubsystemLFDEncoder
-				.setDistancePerPulse(GeneralConstants.DISTANCE_PER_PULSE); // (1.0);
+				.setDistancePerPulse(GeneralConstants.DISTANCE_PER_PULSE);
 		lFDPIDSubsystemLFDEncoder
 				.setPIDSourceParameter(PIDSourceParameter.kRate);
 		lFDPIDSubsystemLFDSpeedController = new Talon(

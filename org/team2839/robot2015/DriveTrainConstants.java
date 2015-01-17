@@ -48,5 +48,8 @@ public class DriveTrainConstants {
 
 	// Misc.
 	public static final double QUAD_ENCODER_DISTANCE_PER_PULSE = 0.01;
+	
+	public static final double SWERVE_LEFT = 90.0; // degrees
+	public static final double DRIVE_STOP = 0.0;
 
 }
