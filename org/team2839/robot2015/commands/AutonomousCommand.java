@@ -10,11 +10,11 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class AutonomousCommand extends Command {
-	
+
 	public enum AutonomousState {
 		START, FINISHED
 	}
-	
+
 	private AutonomousState state;
 
 	public AutonomousCommand() {
@@ -35,7 +35,7 @@ public class AutonomousCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		
+
 	}
 
 	// Make this return false when this Command no longer needs to run execute()

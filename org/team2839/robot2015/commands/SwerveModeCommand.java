@@ -3,7 +3,6 @@ package org.team2839.robot2015.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.team2839.robot2015.DriveTrainConstants;
-import org.team2839.robot2015.GeneralConstants;
 import org.team2839.robot2015.OI;
 import org.team2839.robot2015.Robot;
 import org.team2839.robot2015.Utils;
@@ -18,7 +17,6 @@ public class SwerveModeCommand extends Command {
 		requires(Robot.rFSPIDSubsystem);
 		requires(Robot.rRSPIDSubsystem);
 		requires(Robot.lRSPIDSubsystem);
-
 		requires(Robot.lFDPIDSubsystem);
 		requires(Robot.rFDPIDSubsystem);
 		requires(Robot.rRDPIDSubsystem);

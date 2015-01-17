@@ -21,9 +21,7 @@ public class Utils {
 	 */
 	public static final double joystickDirectionToVoltage(
 			double joystickDirection) {
-		double degrees = joystickDirection + 180.0;
-		double circlePart = 360.0 / GeneralConstants.MAX_MOTOR_VOLTAGE;
-		return GeneralConstants.MAX_MOTOR_VOLTAGE - (degrees / circlePart);
+		return directionToVoltage(joystickDirection + 180.0);
 	}
 
 }
