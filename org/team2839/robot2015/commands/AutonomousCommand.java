@@ -1,12 +1,21 @@
 package org.team2839.robot2015.commands;
 
-//import org.team2839.robot2015.states.AutonomousState;
-
 import org.team2839.robot2015.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
+ *
+ * Pick up tote 1 above can
+ * Back up to the wall
+ * Move left/drop tote down
+ * Move forward touch sensor
+ * Lift tote 2 above can
+ * Back to wall
+ * Move left/drop down
+ * Push tote to auto zone
+ * Drop tote 1, 2
+ * Back off/stay in auto
  *
  */
 public class AutonomousCommand extends Command {
