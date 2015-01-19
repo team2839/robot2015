@@ -10,13 +10,13 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 /**
  *
  */
-public class TurnTableSubsystem extends PIDSubsystem {
+public class TurretSubsystem extends PIDSubsystem {
 
 	private PositionalQuadEncoder encoder;
 	private SpeedController speedController;
 
 	// Initialize your subsystem here
-	public TurnTableSubsystem() {
+	public TurretSubsystem() {
 		super("TurnTableSubsystem", PIDConstants.TURNTABLE_P,
 				PIDConstants.TURNTABLE_I, PIDConstants.TURNTABLE_D);
 		setAbsoluteTolerance(PIDConstants.TURNTABLE_ABSOLUTE_TOLERANCE);

@@ -31,7 +31,7 @@ public class AutonomousCommandGroup extends CommandGroup {
 		addSequential(new AutonomousLiftToteCommand());
 		addSequential(new AutonomousBackupCommand());
 		addParallel(new AutonomousDropToteCommand());
-		addSequential(new AutonomousMoveLeftCommand());
+		addSequential(new AutonomousMoveLeftCommand());		// DONE
 		addSequential(new AutonomousMoveForwardCommand());
 		addSequential(new AutonomousBackupCommand());
 		addParallel(new AutonomousMoveLeftCommand());

@@ -9,9 +9,9 @@ import org.team2839.robot2015.Robot;
 /**
  *
  */
-public class SpinSetpointCommand extends Command {
+public class DriveStartCommand extends Command {
 
-	public SpinSetpointCommand() {
+	public DriveStartCommand() {
 		requires(Robot.lFSPIDSubsystem);
 		requires(Robot.rFSPIDSubsystem);
 		requires(Robot.rRSPIDSubsystem);
@@ -30,24 +30,16 @@ public class SpinSetpointCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		Robot.lFSPIDSubsystem.enable();
-		Robot.lFSPIDSubsystem
-				.setSetpoint(DriveTrainConstants.LF_SWERVE_SPIN_OFFSET); // increase
-		// #
-		// to
-		// increase
-		// CCW
+		Robot.lFSPIDSubsystem.setSetpoint(DriveTrainConstants.LF_SWERVE_OFFSET);
 		Robot.rFSPIDSubsystem.enable();
-		Robot.rFSPIDSubsystem
-				.setSetpoint(DriveTrainConstants.RF_SWERVE_SPIN_OFFSET);
+		Robot.rFSPIDSubsystem.setSetpoint(DriveTrainConstants.RF_SWERVE_OFFSET);
 		Robot.rRSPIDSubsystem.enable();
-		Robot.rRSPIDSubsystem
-				.setSetpoint(DriveTrainConstants.RR_SWERVE_SPIN_OFFSET);
+		Robot.rRSPIDSubsystem.setSetpoint(DriveTrainConstants.RR_SWERVE_OFFSET);
 		Robot.lRSPIDSubsystem.enable();
-		Robot.lRSPIDSubsystem
-				.setSetpoint(DriveTrainConstants.LR_SWERVE_SPIN_OFFSET);
+		Robot.lRSPIDSubsystem.setSetpoint(DriveTrainConstants.LR_SWERVE_OFFSET);
 
-		double speed = OI.driveJoystick.getTwist()
-				* DriveTrainConstants.SPIN_MULTIPLIER * OI.getNormalThrottle();
+		double speed = OI.driveJoystick.getY()
+				* DriveTrainConstants.DRIVE_MULTIPLIER * OI.getNormalThrottle();
 		Robot.lFDPIDSubsystem.enable();
 		Robot.lFDPIDSubsystem.setSetpoint(speed);
 		Robot.rFDPIDSubsystem.enable();
@@ -60,8 +52,8 @@ public class SpinSetpointCommand extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		// return Robot.rFSPIDSubsystem.onTarget();
-		return false;
+		// return Robot.lFSPIDSubsystem.onTarget();
+		return false; // changed to false to keep this command running
 	}
 
 	// Called once after isFinished returns true

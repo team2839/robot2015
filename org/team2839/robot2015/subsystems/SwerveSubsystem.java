@@ -1,6 +1,7 @@
 package org.team2839.robot2015.subsystems;
 
 import org.team2839.robot2015.PIDConstants;
+import org.team2839.robot2015.commands.DriveStopCommand;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -44,7 +45,7 @@ public class SwerveSubsystem extends PIDSubsystem {
 	public void initDefaultCommand() {
 		// Set the default command for a subsystem here.
 		// Add this to trigger a default control with joystick
-		// setDefaultCommand(new SwerveSetpointCommand());
+		setDefaultCommand(new DriveStopCommand());
 	}
 
 	protected double returnPIDInput() {

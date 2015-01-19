@@ -53,14 +53,14 @@ public class OI {
 	public OI() {
 		startSetpointButton = new JoystickButton(driveJoystick,
 				GeneralConstants.START_SETPOINT_BUTTON);
-		startSetpointButton.whileHeld(new StartSetpointCommand());
-		startSetpointButton.whenReleased(new StopSetpointCommand());
+		startSetpointButton.whileHeld(new DriveStartCommand());
+		startSetpointButton.whenReleased(new DriveStopCommand());
 		spinSetpointButton = new JoystickButton(driveJoystick,
 				GeneralConstants.SPIN_SETPOINT_BUTTON); // squeeze trigger &
 														// twist
 		// joystick to spin robot
-		spinSetpointButton.whileHeld(new SpinSetpointCommand());
-		spinSetpointButton.whenReleased(new SwerveModeCommand()); // press
+		spinSetpointButton.whileHeld(new DriveSpinCommand());
+		spinSetpointButton.whenReleased(new DriveSwerveCommand()); // press
 																	// once
 																	// to
 																	// start
@@ -71,11 +71,11 @@ public class OI {
 		SmartDashboard.putData("Autonomous Command",
 				new AutonomousCommandGroup());
 		SmartDashboard.putData("Start Setpoint Command",
-				new StartSetpointCommand());
+				new DriveStartCommand());
 		SmartDashboard.putData("Spin Setpoint Command",
-				new SpinSetpointCommand());
+				new DriveSpinCommand());
 		SmartDashboard.putData("Swerve Setpoint Command",
-				new SwerveModeCommand());
+				new DriveSwerveCommand());
 	}
 
 	public static double getNormalThrottle() {

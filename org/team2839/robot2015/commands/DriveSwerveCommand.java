@@ -2,14 +2,21 @@ package org.team2839.robot2015.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.team2839.robot2015.DriveTrainConstants;
+import org.team2839.robot2015.OI;
 import org.team2839.robot2015.Robot;
+import org.team2839.robot2015.Utils;
 
 /**
  *
  */
-public class StopSetpointCommand extends Command {
+public class DriveSwerveCommand extends Command {
 
-	public StopSetpointCommand() {
+	public DriveSwerveCommand() {
+		requires(Robot.lFSPIDSubsystem);
+		requires(Robot.rFSPIDSubsystem);
+		requires(Robot.rRSPIDSubsystem);
+		requires(Robot.lRSPIDSubsystem);
 		requires(Robot.lFDPIDSubsystem);
 		requires(Robot.rFDPIDSubsystem);
 		requires(Robot.rRDPIDSubsystem);
@@ -22,14 +29,14 @@ public class StopSetpointCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.lFDPIDSubsystem.enable();
-		Robot.lFDPIDSubsystem.setSetpoint(0);
-		Robot.rFDPIDSubsystem.enable();
-		Robot.rFDPIDSubsystem.setSetpoint(0);
-		Robot.rRDPIDSubsystem.enable();
-		Robot.rRDPIDSubsystem.setSetpoint(0);
-		Robot.lRDPIDSubsystem.enable();
-		Robot.lRDPIDSubsystem.setSetpoint(0);
+		double voltage = Utils.joystickDirectionToVoltage(OI.driveJoystick
+				.getDirectionDegrees());
+		GenericCommands.setSwerveSetpoint(voltage);
+
+		double speed = OI.driveJoystick.getMagnitude()
+				* DriveTrainConstants.SWERVE_MULTIPLIER
+				* OI.getNormalThrottle();
+		GenericCommands.setDriveSetpoint(speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
@@ -46,4 +53,5 @@ public class StopSetpointCommand extends Command {
 	// subsystems is scheduled to run
 	protected void interrupted() {
 	}
+
 }
