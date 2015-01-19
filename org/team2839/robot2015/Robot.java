@@ -1,13 +1,15 @@
 package org.team2839.robot2015;
 
+import org.team2839.robot2015.commands.AutonomousCommandGroup;
+import org.team2839.robot2015.subsystems.DriveSubsystem;
+import org.team2839.robot2015.subsystems.GyroRangefinder;
+import org.team2839.robot2015.subsystems.SwerveSubsystem;
+
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-
-import org.team2839.robot2015.commands.*;
-import org.team2839.robot2015.subsystems.*;
 
 /**
  * The VM is configured to automatically run this class, and to call the

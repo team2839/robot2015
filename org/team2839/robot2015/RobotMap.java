@@ -1,14 +1,13 @@
 package org.team2839.robot2015;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
+import edu.wpi.first.wpilibj.SpeedController;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.livewindow.LiveWindowSendable;
-import edu.wpi.first.wpilibj.Gyro;
-import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.AnalogInput;
-import edu.wpi.first.wpilibj.SpeedController;
-import edu.wpi.first.wpilibj.Encoder;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into

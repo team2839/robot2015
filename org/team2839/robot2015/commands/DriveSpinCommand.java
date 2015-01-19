@@ -1,10 +1,10 @@
 package org.team2839.robot2015.commands;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 import org.team2839.robot2015.DriveTrainConstants;
 import org.team2839.robot2015.OI;
 import org.team2839.robot2015.Robot;
+
+import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *

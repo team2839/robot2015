@@ -1,10 +1,14 @@
 package org.team2839.robot2015;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import org.team2839.robot2015.commands.AutonomousCommandGroup;
+import org.team2839.robot2015.commands.DriveSpinCommand;
+import org.team2839.robot2015.commands.DriveStartCommand;
+import org.team2839.robot2015.commands.DriveStopCommand;
+import org.team2839.robot2015.commands.DriveSwerveCommand;
+
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-
-import org.team2839.robot2015.commands.*;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  * This class is the glue that binds the controls on the physical operator
