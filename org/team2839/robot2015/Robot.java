@@ -19,14 +19,14 @@ import org.team2839.robot2015.subsystems.*;
 public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 	public static OI oi;
-	public static LFSPIDSubsystem lFSPIDSubsystem;
-	public static LFDPIDSubsystem lFDPIDSubsystem;
-	public static RFSPIDSubsystem rFSPIDSubsystem;
-	public static RFDPIDSubsystem rFDPIDSubsystem;
-	public static RRSPIDSubsystem rRSPIDSubsystem;
-	public static RRDPIDSubsystem rRDPIDSubsystem;
-	public static LRSPIDSubsystem lRSPIDSubsystem;
-	public static LRDPIDSubsystem lRDPIDSubsystem;
+	public static SwerveSubsystem lFSPIDSubsystem;
+	public static DriveSubsystem lFDPIDSubsystem;
+	public static SwerveSubsystem rFSPIDSubsystem;
+	public static DriveSubsystem rFDPIDSubsystem;
+	public static SwerveSubsystem rRSPIDSubsystem;
+	public static DriveSubsystem rRDPIDSubsystem;
+	public static SwerveSubsystem lRSPIDSubsystem;
+	public static DriveSubsystem lRDPIDSubsystem;
 	public static GyroRangefinder gyroRangefinder;
 
 	public CameraServer server;
@@ -37,14 +37,34 @@ public class Robot extends IterativeRobot {
 	 */
 	public void robotInit() {
 		RobotMap.init();
-		lFSPIDSubsystem = new LFSPIDSubsystem();
-		lFDPIDSubsystem = new LFDPIDSubsystem();
-		rFSPIDSubsystem = new RFSPIDSubsystem();
-		rFDPIDSubsystem = new RFDPIDSubsystem();
-		rRSPIDSubsystem = new RRSPIDSubsystem();
-		rRDPIDSubsystem = new RRDPIDSubsystem();
-		lRSPIDSubsystem = new LRSPIDSubsystem();
-		lRDPIDSubsystem = new LRDPIDSubsystem();
+		lFSPIDSubsystem = new SwerveSubsystem("LFSPIDSubsystem",
+				RobotMap.lFSPIDSubsystemLFSPot,
+				RobotMap.lFSPIDSubsystemLFSSpeedController,
+				DriveTrainConstants.LF_SWERVE_OFFSET);
+		lFDPIDSubsystem = new DriveSubsystem("LFDPIDSubsystem",
+				RobotMap.lFDPIDSubsystemLFDEncoder,
+				RobotMap.lFDPIDSubsystemLFDSpeedController);
+		rFSPIDSubsystem = new SwerveSubsystem("RFSPIDSubsystem",
+				RobotMap.rFSPIDSubsystemRFSPot,
+				RobotMap.rFSPIDSubsystemRFSSpeedController,
+				DriveTrainConstants.RF_SWERVE_OFFSET);
+		rFDPIDSubsystem = new DriveSubsystem("RFDPIDSubsystem",
+				RobotMap.rFDPIDSubsystemRFDEncoder,
+				RobotMap.rFDPIDSubsystemRFDSpeedController);
+		rRSPIDSubsystem = new SwerveSubsystem("RRSPIDSubsystem",
+				RobotMap.rRSPIDSubsystemRRSPot,
+				RobotMap.rRSPIDSubsystemRRSSpeedController,
+				DriveTrainConstants.RR_SWERVE_OFFSET);
+		rRDPIDSubsystem = new DriveSubsystem("RRDPIDSubsystem",
+				RobotMap.rRDPIDSubsystemRRDEncoder,
+				RobotMap.rRDPIDSubsystemRRDSpeedController);
+		lRSPIDSubsystem = new SwerveSubsystem("LRSPIDSubsystem",
+				RobotMap.lRSPIDSubsystemLRSPot,
+				RobotMap.lRSPIDSubsystemLRSSpeedController,
+				DriveTrainConstants.LR_SWERVE_OFFSET);
+		lRDPIDSubsystem = new DriveSubsystem("LRDPIDSubsystem",
+				RobotMap.lRDPIDSubsystemLRDEncoder,
+				RobotMap.lRDPIDSubsystemLRDSpeedController);
 		gyroRangefinder = new GyroRangefinder();
 
 		// This MUST be here. If the OI creates Commands (which it very likely
@@ -61,7 +81,8 @@ public class Robot extends IterativeRobot {
 		server.setQuality(50);
 		// the camera name (ex "cam0") can be found through the roborio web
 		// interface
-		server.startAutomaticCapture("cam2");
+		server.startAutomaticCapture("cam0");
+		server.startAutomaticCapture("cam3");
 	}
 
 	public void autonomousInit() {
