@@ -1,15 +1,25 @@
 package org.team2839.robot2015;
 
 import org.team2839.robot2015.commands.AutonomousCommandGroup;
+import org.team2839.robot2015.subsystems.CanSubsystem;
 import org.team2839.robot2015.subsystems.DriveSubsystem;
+import org.team2839.robot2015.subsystems.FrontToteSubsystem;
 import org.team2839.robot2015.subsystems.GyroRangefinder;
+import org.team2839.robot2015.subsystems.SideToteSubsystem;
 import org.team2839.robot2015.subsystems.SwerveSubsystem;
+import org.team2839.robot2015.subsystems.TurretSubsystem;
+
+import com.ni.vision.NIVision;
+import com.ni.vision.NIVision.DrawMode;
+import com.ni.vision.NIVision.Image;
+import com.ni.vision.NIVision.ShapeMode;
 
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.vision.AxisCamera;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -29,9 +39,20 @@ public class Robot extends IterativeRobot {
 	public static DriveSubsystem rRDPIDSubsystem;
 	public static SwerveSubsystem lRSPIDSubsystem;
 	public static DriveSubsystem lRDPIDSubsystem;
+
+	public static TurretSubsystem turretSubsystem;
+	public static CanSubsystem canPickupSubsystem;
+	public static FrontToteSubsystem frontTotePickupSubsystem;
+	public static SideToteSubsystem sideTotePickupSubsystem;
+
 	public static GyroRangefinder gyroRangefinder;
 
 	public CameraServer server;
+	
+	int session;
+    Image frame;
+    AxisCamera camera;
+    NIVision.Rect rect;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -40,34 +61,31 @@ public class Robot extends IterativeRobot {
 	public void robotInit() {
 		RobotMap.init();
 		lFSPIDSubsystem = new SwerveSubsystem("LFSPIDSubsystem",
-				RobotMap.lFSPIDSubsystemLFSPot,
-				RobotMap.lFSPIDSubsystemLFSSpeedController,
+				RobotMap.LFSPot, RobotMap.LFSSpeedController,
 				DriveTrainConstants.LF_SWERVE_OFFSET);
 		lFDPIDSubsystem = new DriveSubsystem("LFDPIDSubsystem",
-				RobotMap.lFDPIDSubsystemLFDEncoder,
-				RobotMap.lFDPIDSubsystemLFDSpeedController);
+				RobotMap.LFDEncoder, RobotMap.LFDSpeedController);
 		rFSPIDSubsystem = new SwerveSubsystem("RFSPIDSubsystem",
-				RobotMap.rFSPIDSubsystemRFSPot,
-				RobotMap.rFSPIDSubsystemRFSSpeedController,
+				RobotMap.RFSPot, RobotMap.RFSSpeedController,
 				DriveTrainConstants.RF_SWERVE_OFFSET);
 		rFDPIDSubsystem = new DriveSubsystem("RFDPIDSubsystem",
-				RobotMap.rFDPIDSubsystemRFDEncoder,
-				RobotMap.rFDPIDSubsystemRFDSpeedController);
+				RobotMap.RFDEncoder, RobotMap.RFDSpeedController);
 		rRSPIDSubsystem = new SwerveSubsystem("RRSPIDSubsystem",
-				RobotMap.rRSPIDSubsystemRRSPot,
-				RobotMap.rRSPIDSubsystemRRSSpeedController,
+				RobotMap.RRSPot, RobotMap.RRSSpeedController,
 				DriveTrainConstants.RR_SWERVE_OFFSET);
 		rRDPIDSubsystem = new DriveSubsystem("RRDPIDSubsystem",
-				RobotMap.rRDPIDSubsystemRRDEncoder,
-				RobotMap.rRDPIDSubsystemRRDSpeedController);
+				RobotMap.RRDEncoder, RobotMap.RRDSpeedController);
 		lRSPIDSubsystem = new SwerveSubsystem("LRSPIDSubsystem",
-				RobotMap.lRSPIDSubsystemLRSPot,
-				RobotMap.lRSPIDSubsystemLRSSpeedController,
+				RobotMap.LRSPot, RobotMap.LRSSpeedController,
 				DriveTrainConstants.LR_SWERVE_OFFSET);
 		lRDPIDSubsystem = new DriveSubsystem("LRDPIDSubsystem",
-				RobotMap.lRDPIDSubsystemLRDEncoder,
-				RobotMap.lRDPIDSubsystemLRDSpeedController);
+				RobotMap.LRDEncoder, RobotMap.LRDSpeedController);
 		gyroRangefinder = new GyroRangefinder();
+
+		turretSubsystem = new TurretSubsystem();
+		canPickupSubsystem = new CanSubsystem();
+		frontTotePickupSubsystem = new FrontToteSubsystem();
+		sideTotePickupSubsystem = new SideToteSubsystem();
 
 		// This MUST be here. If the OI creates Commands (which it very likely
 		// will), constructing it during the construction of CommandBase (from
@@ -85,6 +103,12 @@ public class Robot extends IterativeRobot {
 		// interface
 		server.startAutomaticCapture("cam0");
 		server.startAutomaticCapture("cam3");
+		
+		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
+
+        // open the camera at the IP address assigned. This is the IP address that the camera
+        // can be accessed through the web interface.
+        camera = new AxisCamera("axis-2839.local");
 	}
 
 	public void autonomousInit() {
@@ -108,6 +132,7 @@ public class Robot extends IterativeRobot {
 		updateStatus(); // added in SD video
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
+		rect = new NIVision.Rect(10, 10, 100, 100);
 	}
 
 	/**
@@ -116,6 +141,11 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		updateStatus(); // added in SD video
+        camera.getImage(frame);
+        NIVision.imaqDrawShapeOnImage(frame, frame, rect,
+                DrawMode.DRAW_VALUE, ShapeMode.SHAPE_OVAL, 0.0f);
+
+        CameraServer.getInstance().setImage(frame);
 	}
 
 	/**

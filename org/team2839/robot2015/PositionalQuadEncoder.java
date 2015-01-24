@@ -4,7 +4,7 @@ import edu.wpi.first.wpilibj.Encoder;
 
 public class PositionalQuadEncoder extends Encoder {
 
-	private double ticksPerRevolution;
+	private double pulsesPerRevolution;
 
 	public PositionalQuadEncoder(int aChannel, int bChannel,
 			boolean reverseDirection, EncodingType encodingType) {
@@ -15,15 +15,15 @@ public class PositionalQuadEncoder extends Encoder {
 
 	@Override
 	public double pidGet() {
-		return getDistance() % ticksPerRevolution;
+		return getDistance() % pulsesPerRevolution;
 	}
 
 	public double getTicksPerRevolution() {
-		return ticksPerRevolution;
+		return pulsesPerRevolution;
 	}
 
-	public void setTicksPerRevolution(double ticksPerRevolution) {
-		this.ticksPerRevolution = ticksPerRevolution;
+	public void setPulsesPerRevolution(double ticksPerRevolution) {
+		this.pulsesPerRevolution = ticksPerRevolution;
 	}
 
 }

@@ -30,7 +30,7 @@ public class PIDConstants {
 	public static final double TURNTABLE_OUTPUT_MIN = -1.0;
 	public static final double TURNTABLE_OUTPUT_MAX = 1.0;
 	public static final double TURNTABLE_INPUT_MIN = 0.0;
-	public static final double TURNTABLE_INPUT_MAX = 200.0;
+	public static final double TURNTABLE_INPUT_MAX = GeneralConstants.TURRET_PULSES_PER_REVOLUTION;
 
 	public static final double TURNTABLE_ABSOLUTE_TOLERANCE = 2.0;
 

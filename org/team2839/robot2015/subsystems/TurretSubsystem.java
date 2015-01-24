@@ -2,6 +2,7 @@ package org.team2839.robot2015.subsystems;
 
 import org.team2839.robot2015.PIDConstants;
 import org.team2839.robot2015.PositionalQuadEncoder;
+import org.team2839.robot2015.commands.TurretStopCommand;
 
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
@@ -30,8 +31,7 @@ public class TurretSubsystem extends PIDSubsystem {
 	}
 
 	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
+		setDefaultCommand(new TurretStopCommand());
 	}
 
 	protected double returnPIDInput() {

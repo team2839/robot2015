@@ -3,15 +3,15 @@ package org.team2839.robot2015;
 public class DriveTrainConstants {
 
 	// Slots on the Sideboard/RoboRIO
-	public static final int LF_SWERVE_TALON = 0;
-	public static final int RF_SWERVE_TALON = 2;
-	public static final int RR_SWERVE_TALON = 4;
-	public static final int LR_SWERVE_TALON = 6;
+	public static final int LF_SWERVE_MOTOR = 0;
+	public static final int RF_SWERVE_MOTOR = 2;
+	public static final int RR_SWERVE_MOTOR = 4;
+	public static final int LR_SWERVE_MOTOR = 6;
 
-	public static final int LF_DRIVE_TALON = 1;
-	public static final int RF_DRIVE_TALON = 3;
-	public static final int RR_DRIVE_TALON = 5;
-	public static final int LR_DRIVE_TALON = 7;
+	public static final int LF_DRIVE_MOTOR = 1;
+	public static final int RF_DRIVE_MOTOR = 3;
+	public static final int RR_DRIVE_MOTOR = 5;
+	public static final int LR_DRIVE_MOTOR = 7;
 
 	public static final int LF_DRIVE_ENCODER_A = 0;
 	public static final int LF_DRIVE_ENCODER_B = 1;
@@ -51,5 +51,10 @@ public class DriveTrainConstants {
 
 	public static final double SWERVE_LEFT = 90.0; // degrees
 	public static final double DRIVE_STOP = 0.0;
+
+	public static final double DISTANCE_PER_REVOLUTION = 13.4; // inches
+	public static final double PULSES_PER_REVOLUTION = 200.0;
+	public static final double DISTANCE_PER_PULSE = DISTANCE_PER_REVOLUTION
+			/ PULSES_PER_REVOLUTION;
 
 }

@@ -76,8 +76,7 @@ public class OI {
 				new AutonomousCommandGroup());
 		SmartDashboard.putData("Start Setpoint Command",
 				new DriveStartCommand());
-		SmartDashboard.putData("Spin Setpoint Command",
-				new DriveSpinCommand());
+		SmartDashboard.putData("Spin Setpoint Command", new DriveSpinCommand());
 		SmartDashboard.putData("Swerve Setpoint Command",
 				new DriveSwerveCommand());
 	}
