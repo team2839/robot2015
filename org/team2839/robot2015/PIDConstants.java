@@ -34,15 +34,15 @@ public class PIDConstants {
 
 	public static final double TURNTABLE_ABSOLUTE_TOLERANCE = 2.0;
 
-	public static final double CAN_LIFTER_P = 1.0;
-	public static final double CAN_LIFTER_I = 0.0;
-	public static final double CAN_LIFTER_D = 0.0;
+	public static final double LIFTER_P = 1.0;
+	public static final double LIFTER_I = 0.0;
+	public static final double LIFTER_D = 0.0;
 
-	public static final double CAN_LIFTER_OUTPUT_MIN = -1.0;
-	public static final double CAN_LIFTER_OUTPUT_MAX = 1.0;
-	public static final double CAN_LIFTER_INPUT_MIN = GeneralConstants.TWISTY_POT_MIN_VOLTAGE;
-	public static final double CAN_LIFTER_INPUT_MAX = GeneralConstants.TWISTY_POT_MAX_VOLTAGE;
+	public static final double LIFTER_OUTPUT_MIN = -1.0;
+	public static final double LIFTER_OUTPUT_MAX = 1.0;
+	public static final double LIFTER_INPUT_MIN = GeneralConstants.TWISTY_POT_MIN_VOLTAGE;
+	public static final double LIFTER_INPUT_MAX = GeneralConstants.TWISTY_POT_MAX_VOLTAGE;
 
-	public static final double CAN_LIFTER_ABSOLUTE_TOLERANCE = 2.0;
+	public static final double LIFTER_ABSOLUTE_TOLERANCE = 2.0;
 
 }
