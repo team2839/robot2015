@@ -9,17 +9,11 @@ import org.team2839.robot2015.subsystems.SideToteSubsystem;
 import org.team2839.robot2015.subsystems.SwerveSubsystem;
 import org.team2839.robot2015.subsystems.TurretSubsystem;
 
-import com.ni.vision.NIVision;
-import com.ni.vision.NIVision.DrawMode;
-import com.ni.vision.NIVision.Image;
-import com.ni.vision.NIVision.ShapeMode;
-
 import edu.wpi.first.wpilibj.CameraServer;
 import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import edu.wpi.first.wpilibj.vision.AxisCamera;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -49,10 +43,10 @@ public class Robot extends IterativeRobot {
 
 	public CameraServer server;
 
-	int session;
-	Image frame;
-	AxisCamera camera;
-	NIVision.Rect rect;
+//	int session;
+//	Image frame;
+//	AxisCamera camera;
+//	NIVision.Rect rect;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -104,12 +98,12 @@ public class Robot extends IterativeRobot {
 		server.startAutomaticCapture("cam0");
 		server.startAutomaticCapture("cam3");
 
-		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
-
-		// open the camera at the IP address assigned. This is the IP address
-		// that the camera
-		// can be accessed through the web interface.
-		camera = new AxisCamera("10.28.39.14");
+//		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
+//
+//		// open the camera at the IP address assigned. This is the IP address
+//		// that the camera
+//		// can be accessed through the web interface.
+//		camera = new AxisCamera("10.28.39.14");
 	}
 
 	public void autonomousInit() {
@@ -133,7 +127,7 @@ public class Robot extends IterativeRobot {
 		updateStatus(); // added in SD video
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		rect = new NIVision.Rect(10, 10, 100, 100);
+//		rect = new NIVision.Rect(10, 10, 100, 100);
 	}
 
 	/**
@@ -142,11 +136,11 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		updateStatus(); // added in SD video
-		camera.getImage(frame);
-		NIVision.imaqDrawShapeOnImage(frame, frame, rect, DrawMode.DRAW_VALUE,
-				ShapeMode.SHAPE_OVAL, 0.0f);
-
-		CameraServer.getInstance().setImage(frame);
+//		camera.getImage(frame);
+//		NIVision.imaqDrawShapeOnImage(frame, frame, rect, DrawMode.DRAW_VALUE,
+//				ShapeMode.SHAPE_OVAL, 0.0f);
+//
+//		CameraServer.getInstance().setImage(frame);
 	}
 
 	/**
