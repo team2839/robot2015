@@ -38,5 +38,7 @@ public class GeneralConstants {
 	public static final double TWISTY_POT_MAX_VOLTAGE = 5.0;
 	public static final double TWISTY_POT_MIN_VOLTAGE = 0.0;
 	public static final double CAN_PICKUP_OFFSET = 0;
+	public static final double FRONT_TOTE_PICKUP_OFFSET = 0;
+	public static final double SIDE_TOTE_PICKUP_OFFSET = 0;
 
 }

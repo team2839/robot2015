@@ -1,8 +1,8 @@
-package org.team2839.robot2015.commands;
+package org.team2839.robot2015.autonomousCommands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class AutonomousBackOffCommand extends Command {
+public class AutonomousMoveForwardCommand extends Command {
 
 	@Override
 	protected void initialize() {

@@ -1,17 +1,20 @@
 package org.team2839.robot2015.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import org.team2839.robot2015.GeneralConstants;
+import org.team2839.robot2015.RobotMap;
+import org.team2839.robot2015.commands.FrontToteStopCommand;
 
-/**
- *
- */
-public class FrontToteSubsystem extends Subsystem {
+public class FrontToteSubsystem extends LifterSubsystem {
 
-	// Put methods for controlling this subsystem
-	// here. Call these from Commands.
-
-	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
+	public FrontToteSubsystem() {
+		super("FrontToteSubsystem", RobotMap.frontTotePickupPot,
+				RobotMap.frontTotePickupMotor,
+				GeneralConstants.FRONT_TOTE_PICKUP_OFFSET);
 	}
+
+	@Override
+	public void initDefaultCommand() {
+		setDefaultCommand(new FrontToteStopCommand());
+	}
+
 }

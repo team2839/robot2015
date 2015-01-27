@@ -1,9 +1,10 @@
-package org.team2839.robot2015.commands;
+package org.team2839.robot2015.autonomousCommands;
 
 import org.team2839.robot2015.DriveTrainConstants;
 import org.team2839.robot2015.GeneralConstants;
 import org.team2839.robot2015.Robot;
 import org.team2839.robot2015.Utils;
+import org.team2839.robot2015.commands.GenericCommands;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.command.Command;

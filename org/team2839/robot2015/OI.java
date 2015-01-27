@@ -1,6 +1,6 @@
 package org.team2839.robot2015;
 
-import org.team2839.robot2015.commands.AutonomousCommandGroup;
+import org.team2839.robot2015.autonomousCommands.AutonomousCommandGroup;
 import org.team2839.robot2015.commands.DriveSpinCommand;
 import org.team2839.robot2015.commands.DriveStartCommand;
 import org.team2839.robot2015.commands.DriveStopCommand;

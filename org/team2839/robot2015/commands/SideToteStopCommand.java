@@ -5,13 +5,13 @@ import org.team2839.robot2015.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class TurretMoveCommand extends Command {
+/**
+ *
+ */
+public class SideToteStopCommand extends Command {
 
-	private double setpoint;
-
-	public TurretMoveCommand(double setpoint) {
-		requires(Robot.turretSubsystem);
-		this.setpoint = setpoint;
+	public SideToteStopCommand() {
+		requires(Robot.sideTotePickupSubsystem);
 	}
 
 	// Called just before this Command runs the first time
@@ -20,15 +20,12 @@ public class TurretMoveCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.turretSubsystem.enable();
-		Robot.turretSubsystem.setSetpoint(setpoint);
+		RobotMap.sideTotePickupMotor.set(0.0);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return Robot.turretSubsystem.onTarget()
-				|| RobotMap.turretLeftLimitSwitch.get()
-				|| RobotMap.turretRightLimitSwitch.get();
+		return false;
 	}
 
 	// Called once after isFinished returns true

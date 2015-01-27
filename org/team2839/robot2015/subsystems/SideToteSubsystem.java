@@ -1,17 +1,20 @@
 package org.team2839.robot2015.subsystems;
 
-import edu.wpi.first.wpilibj.command.Subsystem;
+import org.team2839.robot2015.GeneralConstants;
+import org.team2839.robot2015.RobotMap;
+import org.team2839.robot2015.commands.SideToteStopCommand;
 
-/**
- *
- */
-public class SideToteSubsystem extends Subsystem {
+public class SideToteSubsystem extends LifterSubsystem {
 
-	// Put methods for controlling this subsystem
-	// here. Call these from Commands.
-
-	public void initDefaultCommand() {
-		// Set the default command for a subsystem here.
-		// setDefaultCommand(new MySpecialCommand());
+	public SideToteSubsystem() {
+		super("SideToteSubsystem", RobotMap.sideTotePickupPot,
+				RobotMap.sideTotePickupMotor,
+				GeneralConstants.SIDE_TOTE_PICKUP_OFFSET);
 	}
+
+	@Override
+	public void initDefaultCommand() {
+		setDefaultCommand(new SideToteStopCommand());
+	}
+
 }

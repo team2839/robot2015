@@ -1,4 +1,4 @@
-package org.team2839.robot2015.commands;
+package org.team2839.robot2015.autonomousCommands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 

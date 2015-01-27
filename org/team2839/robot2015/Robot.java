@@ -1,6 +1,6 @@
 package org.team2839.robot2015;
 
-import org.team2839.robot2015.commands.AutonomousCommandGroup;
+import org.team2839.robot2015.autonomousCommands.AutonomousCommandGroup;
 import org.team2839.robot2015.subsystems.CanSubsystem;
 import org.team2839.robot2015.subsystems.DriveSubsystem;
 import org.team2839.robot2015.subsystems.FrontToteSubsystem;
@@ -48,11 +48,11 @@ public class Robot extends IterativeRobot {
 	public static GyroRangefinder gyroRangefinder;
 
 	public CameraServer server;
-	
+
 	int session;
-    Image frame;
-    AxisCamera camera;
-    NIVision.Rect rect;
+	Image frame;
+	AxisCamera camera;
+	NIVision.Rect rect;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -103,12 +103,13 @@ public class Robot extends IterativeRobot {
 		// interface
 		server.startAutomaticCapture("cam0");
 		server.startAutomaticCapture("cam3");
-		
+
 		frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 
-        // open the camera at the IP address assigned. This is the IP address that the camera
-        // can be accessed through the web interface.
-        camera = new AxisCamera("10.28.39.14");
+		// open the camera at the IP address assigned. This is the IP address
+		// that the camera
+		// can be accessed through the web interface.
+		camera = new AxisCamera("10.28.39.14");
 	}
 
 	public void autonomousInit() {
@@ -141,11 +142,11 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
 		updateStatus(); // added in SD video
-        camera.getImage(frame);
-        NIVision.imaqDrawShapeOnImage(frame, frame, rect,
-                DrawMode.DRAW_VALUE, ShapeMode.SHAPE_OVAL, 0.0f);
+		camera.getImage(frame);
+		NIVision.imaqDrawShapeOnImage(frame, frame, rect, DrawMode.DRAW_VALUE,
+				ShapeMode.SHAPE_OVAL, 0.0f);
 
-        CameraServer.getInstance().setImage(frame);
+		CameraServer.getInstance().setImage(frame);
 	}
 
 	/**

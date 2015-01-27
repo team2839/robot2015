@@ -1,8 +1,8 @@
-package org.team2839.robot2015.commands;
+package org.team2839.robot2015.autonomousCommands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class AutonomousBackupCommand extends Command {
+public class AutonomousPushToteCommand extends Command {
 
 	@Override
 	protected void initialize() {
