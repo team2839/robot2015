@@ -35,5 +35,8 @@ public class GeneralConstants {
 	public static final double AUTONOMOUS_DRIVE_SPEED = 0.5; // 0.0 to 1.0
 
 	public static final double TURRET_PULSES_PER_REVOLUTION = 2000.0;
+	public static final double TWISTY_POT_MAX_VOLTAGE = 5.0;
+	public static final double TWISTY_POT_MIN_VOLTAGE = 0.0;
+	public static final double CAN_PICKUP_OFFSET = 0;
 
 }

@@ -1,9 +1,6 @@
 package org.team2839.robot2015.subsystems;
 
-import org.team2839.robot2015.GeneralConstants;
 import org.team2839.robot2015.PIDConstants;
-import org.team2839.robot2015.RobotMap;
-import org.team2839.robot2015.commands.CanStopCommand;
 
 import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -13,19 +10,20 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 /**
  *
  */
-public class CanSubsystem extends PIDSubsystem {
+public class LifterSubsystem extends PIDSubsystem {
 	
 	private AnalogInput pot;
 	private SpeedController speedController;
 	private double offset;
 
     // Initialize your subsystem here
-    public CanSubsystem() {
-    	super("CanLifterSubsystem", PIDConstants.CAN_LIFTER_P,
+    public LifterSubsystem(String name, AnalogInput pot,
+			SpeedController speedController, double offset) {
+    	super(name, PIDConstants.CAN_LIFTER_P,
 				PIDConstants.CAN_LIFTER_I, PIDConstants.CAN_LIFTER_D);
-    	this.pot = RobotMap.canPickupPot;
-    	this.speedController = RobotMap.canPickupMotor;
-    	this.offset = GeneralConstants.CAN_PICKUP_OFFSET;
+    	this.pot = pot;
+    	this.speedController = speedController;
+    	this.offset = offset;
     	setAbsoluteTolerance(PIDConstants.CAN_LIFTER_ABSOLUTE_TOLERANCE);
     	LiveWindow.addActuator("CanLifterSubsystem", "PIDSubsystem Controller",
 				getPIDController());
@@ -36,7 +34,6 @@ public class CanSubsystem extends PIDSubsystem {
     }
     
     public void initDefaultCommand() {
-        setDefaultCommand(new CanStopCommand());
     }
     
     protected double returnPIDInput() {

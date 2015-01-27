@@ -108,7 +108,7 @@ public class Robot extends IterativeRobot {
 
         // open the camera at the IP address assigned. This is the IP address that the camera
         // can be accessed through the web interface.
-        camera = new AxisCamera("axis-2839.local");
+        camera = new AxisCamera("10.28.39.14");
 	}
 
 	public void autonomousInit() {
