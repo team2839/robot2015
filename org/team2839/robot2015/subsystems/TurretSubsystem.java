@@ -4,9 +4,11 @@ import org.team2839.robot2015.PIDConstants;
 import org.team2839.robot2015.PositionalQuadEncoder;
 import org.team2839.robot2015.commands.TurretStopCommand;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -40,5 +42,13 @@ public class TurretSubsystem extends PIDSubsystem {
 
 	protected void usePIDOutput(double output) {
 		speedController.pidWrite(output);
+	}
+
+	public void updateStatus() {
+		SmartDashboard.putNumber(getName(), encoder.pidGet());
+	}
+
+	public Encoder getEncoder() {
+		return encoder;
 	}
 }

@@ -46,6 +46,9 @@ public class DriveTrainConstants {
 	public static final double DRIVE_MULTIPLIER = 1.0;
 	public static final double SWERVE_MULTIPLIER = -0.5;
 
+	public static final double THROTTLE_MIN = 0.1;
+	public static final double THROTTLE_MAX = 1.0;
+
 	// Misc.
 	public static final double QUAD_ENCODER_DISTANCE_PER_PULSE = 0.01;
 

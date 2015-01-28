@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.command.PIDSubsystem;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -42,5 +43,13 @@ public class LifterSubsystem extends PIDSubsystem {
 
 	protected void usePIDOutput(double output) {
 		speedController.pidWrite(output);
+	}
+
+	public void updateStatus() {
+		SmartDashboard.putNumber(getName(), pot.getAverageVoltage());
+	}
+
+	public AnalogInput getPot() {
+		return pot;
 	}
 }
