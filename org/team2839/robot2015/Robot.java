@@ -135,7 +135,6 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		RobotMap.frontTotePickupMotor.set(OI.operatorJoystick.getLeftY() * 0.5);
 		updateStatus(); // added in SD video
 		// camera.getImage(frame);
 		// NIVision.imaqDrawShapeOnImage(frame, frame, rect,
