@@ -7,7 +7,7 @@ import edu.wpi.first.wpilibj.PIDSource.PIDSourceParameter;
 import edu.wpi.first.wpilibj.SpeedController;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import edu.wpi.first.wpilibj.livewindow.LiveWindowSendable;
-import edu.wpi.first.wpilibj.Victor;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.DigitalInput;
 
 /**
@@ -61,7 +61,7 @@ public class RobotMap {
 	public static void init() {
 		LFSPot = new AnalogInput(DriveTrainConstants.LF_SWERVE_POT);
 		LiveWindow.addSensor("LFS PID Subsystem", "LFS Pot", LFSPot);
-		LFSSpeedController = new Victor(DriveTrainConstants.LF_SWERVE_MOTOR);
+		LFSSpeedController = new Talon(DriveTrainConstants.LF_SWERVE_MOTOR);
 		LiveWindow.addActuator("LFS PID Subsystem", "LFS Speed Controller",
 				(LiveWindowSendable) LFSSpeedController);
 
@@ -70,14 +70,14 @@ public class RobotMap {
 		LiveWindow.addSensor("LFD PID Subsystem", "LFD Encoder", LFDEncoder);
 		LFDEncoder.setDistancePerPulse(DriveTrainConstants.DISTANCE_PER_PULSE);
 		LFDEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
-		LFDSpeedController = new Victor(DriveTrainConstants.LF_DRIVE_MOTOR);
+		LFDSpeedController = new Talon(DriveTrainConstants.LF_DRIVE_MOTOR);
 		LiveWindow.addActuator("LFD PID Subsystem", "LFD Speed Controller",
 				(LiveWindowSendable) LFDSpeedController);
 
 		RFSPot = new AnalogInput(DriveTrainConstants.RF_SWERVE_POT);
 		LiveWindow.addSensor("RFS PID Subsystem", "RFS Pot", RFSPot);
 
-		RFSSpeedController = new Victor(DriveTrainConstants.RF_SWERVE_MOTOR);
+		RFSSpeedController = new Talon(DriveTrainConstants.RF_SWERVE_MOTOR);
 		LiveWindow.addActuator("RFS PID Subsystem", "RFS Speed Controller",
 				(LiveWindowSendable) RFSSpeedController);
 
@@ -86,14 +86,14 @@ public class RobotMap {
 		LiveWindow.addSensor("RFD PID Subsystem", "RFD Encoder", RFDEncoder);
 		RFDEncoder.setDistancePerPulse(DriveTrainConstants.DISTANCE_PER_PULSE);
 		RFDEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
-		RFDSpeedController = new Victor(DriveTrainConstants.RF_DRIVE_MOTOR);
+		RFDSpeedController = new Talon(DriveTrainConstants.RF_DRIVE_MOTOR);
 		LiveWindow.addActuator("RFD PID Subsystem", "RFD Speed Controller",
 				(LiveWindowSendable) RFDSpeedController);
 
 		RRSPot = new AnalogInput(DriveTrainConstants.RR_SWERVE_POT);
 		LiveWindow.addSensor("RRS PID Subsystem", "RRS Pot", RRSPot);
 
-		RRSSpeedController = new Victor(DriveTrainConstants.RR_SWERVE_MOTOR);
+		RRSSpeedController = new Talon(DriveTrainConstants.RR_SWERVE_MOTOR);
 		LiveWindow.addActuator("RRS PID Subsystem", "RRS Speed Controller",
 				(LiveWindowSendable) RRSSpeedController);
 
@@ -102,14 +102,14 @@ public class RobotMap {
 		LiveWindow.addSensor("RRD PID Subsystem", "RRD Encoder", RRDEncoder);
 		RRDEncoder.setDistancePerPulse(DriveTrainConstants.DISTANCE_PER_PULSE);
 		RRDEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
-		RRDSpeedController = new Victor(DriveTrainConstants.RR_DRIVE_MOTOR);
+		RRDSpeedController = new Talon(DriveTrainConstants.RR_DRIVE_MOTOR);
 		LiveWindow.addActuator("RRD PID Subsystem", "RRD Speed Controller",
 				(LiveWindowSendable) RRDSpeedController);
 
 		LRSPot = new AnalogInput(DriveTrainConstants.LR_SWERVE_POT);
 		LiveWindow.addSensor("LRS PID Subsystem", "LRS Pot", LRSPot);
 
-		LRSSpeedController = new Victor(DriveTrainConstants.LR_SWERVE_MOTOR);
+		LRSSpeedController = new Talon(DriveTrainConstants.LR_SWERVE_MOTOR);
 		LiveWindow.addActuator("LRS PID Subsystem", "LRS Speed Controller",
 				(LiveWindowSendable) LRSSpeedController);
 
@@ -118,7 +118,7 @@ public class RobotMap {
 		LiveWindow.addSensor("LRD PID Subsystem", "LRD Encoder", LRDEncoder);
 		LRDEncoder.setDistancePerPulse(DriveTrainConstants.DISTANCE_PER_PULSE);
 		LRDEncoder.setPIDSourceParameter(PIDSourceParameter.kRate);
-		LRDSpeedController = new Victor(DriveTrainConstants.LR_DRIVE_MOTOR);
+		LRDSpeedController = new Talon(DriveTrainConstants.LR_DRIVE_MOTOR);
 		LiveWindow.addActuator("LRD PID Subsystem", "LRD Speed Controller",
 				(LiveWindowSendable) LRDSpeedController);
 
@@ -129,7 +129,7 @@ public class RobotMap {
 				.setPulsesPerRevolution(GeneralConstants.TURRET_PULSES_PER_REVOLUTION);
 		LiveWindow.addSensor("Turret Subsystem", "Turret Encoder",
 				(LiveWindowSendable) turretEncoder);
-		turretMotor = new Victor(GeneralConstants.TURRET_MOTOR);
+		turretMotor = new Talon(GeneralConstants.TURRET_MOTOR);
 		LiveWindow.addActuator("Turret Subsystem", "Turret Speed Controller",
 				(LiveWindowSendable) turretMotor);
 		turretLeftLimitSwitch = new DigitalInput(
@@ -141,7 +141,7 @@ public class RobotMap {
 		LiveWindow.addSensor("Turret Subsystem", "Turret Right Sensor",
 				(LiveWindowSendable) turretRightLimitSwitch);
 
-		canPickupMotor = new Victor(GeneralConstants.CAN_PICKUP_MOTOR);
+		canPickupMotor = new Talon(GeneralConstants.CAN_PICKUP_MOTOR);
 		LiveWindow.addActuator("Can Subsystem", "Can Speed Controller",
 				(LiveWindowSendable) canPickupMotor);
 		canPickupPot = new AnalogInput(GeneralConstants.CAN_PICKUP_POT);
@@ -156,7 +156,7 @@ public class RobotMap {
 		LiveWindow.addSensor("Can Subsystem", "Can Bottom Sensor",
 				(LiveWindowSendable) canPickupBottomLimitSwitch);
 
-		frontTotePickupMotor = new Victor(
+		frontTotePickupMotor = new Talon(
 				GeneralConstants.FRONT_TOTE_PICKUP_MOTOR);
 		LiveWindow.addActuator("Front Tote Subsystem",
 				"Front Tote Speed Controller",
@@ -175,7 +175,7 @@ public class RobotMap {
 				"Front Tote Bottom Sensor",
 				(LiveWindowSendable) frontTotePickupBottomLimitSwitch);
 
-		sideTotePickupMotor = new Victor(
+		sideTotePickupMotor = new Talon(
 				GeneralConstants.SIDE_TOTE_PICKUP_MOTOR);
 		LiveWindow.addActuator("Side Tote Subsystem",
 				"Side Tote Speed Controller",

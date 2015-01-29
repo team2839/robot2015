@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 /**
  * For the Logitech F310 Gamepad
+ * 
  * @author Jack VanDrunen (jack@fallingduck.net)
  */
 public class Gamepad extends Joystick {
@@ -37,7 +38,7 @@ public class Gamepad extends Joystick {
 	public static final int BUTTON_POV_SOUTH_WEST = 18;
 	public static final int BUTTON_POV_WEST = 19;
 	public static final int BUTTON_POV_NORTH_WEST = 20;
-	
+
 	public static final int POV_CENTER = -1;
 	public static final int POV_NORTH = 0;
 	public static final int POV_NORTH_EAST = 45;
@@ -47,7 +48,7 @@ public class Gamepad extends Joystick {
 	public static final int POV_SOUTH_WEST = 225;
 	public static final int POV_WEST = 270;
 	public static final int POV_NORTH_WEST = 315;
-	
+
 	public class TriggerButton extends JoystickButton {
 		public TriggerButton(GenericHID joystick, int buttonNumber) {
 			super(joystick, buttonNumber);
@@ -57,7 +58,7 @@ public class Gamepad extends Joystick {
 	public Gamepad(int slot) {
 		super(slot);
 	}
-	
+
 	@Override
 	public boolean getRawButton(int button) {
 		if (button < 11) {
@@ -84,7 +85,8 @@ public class Gamepad extends Joystick {
 			return (getPOV() == POV_EAST);
 		case BUTTON_POV_WEST:
 			return (getPOV() == POV_WEST);
-		default: return false;
+		default:
+			return false;
 		}
 	}
 

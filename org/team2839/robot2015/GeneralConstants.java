@@ -43,25 +43,41 @@ public class GeneralConstants {
 	public static final double CAN_PICKUP_OFFSET = 0;
 	public static final double FRONT_TOTE_PICKUP_OFFSET = 0;
 	public static final double SIDE_TOTE_PICKUP_OFFSET = 0;
-	
+
 	public static final double TWISTY_POT_TURNS = 10.0;
 	public static final double CAN_PICKUP_INCHES_PER_TURN = 8.0;
-	public static final double CAN_PICKUP_INCHES_PER_VOLT = (CAN_PICKUP_INCHES_PER_TURN * TWISTY_POT_TURNS) / (TWISTY_POT_MAX_VOLTAGE - TWISTY_POT_MIN_VOLTAGE);
+	public static final double CAN_PICKUP_INCHES_PER_VOLT = (CAN_PICKUP_INCHES_PER_TURN * TWISTY_POT_TURNS)
+			/ (TWISTY_POT_MAX_VOLTAGE - TWISTY_POT_MIN_VOLTAGE);
 	public static final double FRONT_TOTE_PICKUP_INCHES_PER_TURN = 5.5;
-	public static final double FRONT_TOTE_PICKUP_INCHES_PER_VOLT = (FRONT_TOTE_PICKUP_INCHES_PER_TURN * TWISTY_POT_TURNS) / (TWISTY_POT_MAX_VOLTAGE - TWISTY_POT_MIN_VOLTAGE);
+	public static final double FRONT_TOTE_PICKUP_INCHES_PER_VOLT = (FRONT_TOTE_PICKUP_INCHES_PER_TURN * TWISTY_POT_TURNS)
+			/ (TWISTY_POT_MAX_VOLTAGE - TWISTY_POT_MIN_VOLTAGE);
 	public static final double SIDE_TOTE_PICKUP_INCHES_PER_TURN = 5.5;
-	public static final double SIDE_TOTE_PICKUP_INCHES_PER_VOLT = (SIDE_TOTE_PICKUP_INCHES_PER_TURN * TWISTY_POT_TURNS) / (TWISTY_POT_MAX_VOLTAGE - TWISTY_POT_MIN_VOLTAGE);
+	public static final double SIDE_TOTE_PICKUP_INCHES_PER_VOLT = (SIDE_TOTE_PICKUP_INCHES_PER_TURN * TWISTY_POT_TURNS)
+			/ (TWISTY_POT_MAX_VOLTAGE - TWISTY_POT_MIN_VOLTAGE);
+
+	public static final double TURRET_LEFT_DIRECTION = 1.0;
+	public static final double TURRET_RIGHT_DIRECTION = -1.0
+			* TURRET_LEFT_DIRECTION;
+	public static final double CAN_PICKUP_UP_DIRECTION = 1.0;
+	public static final double CAN_PICKUP_DOWN_DIRECTION = -1.0
+			* CAN_PICKUP_UP_DIRECTION;
+	public static final double FRONT_TOTE_PICKUP_UP_DIRECTION = 1.0;
+	public static final double FRONT_TOTE_PICKUP_DOWN_DIRECTION = -1.0
+			* FRONT_TOTE_PICKUP_UP_DIRECTION;
+	public static final double SIDE_TOTE_PICKUP_UP_DIRECTION = 1.0;
+	public static final double SIDE_TOTE_PICKUP_DOWN_DIRECTION = -1.0
+			* SIDE_TOTE_PICKUP_UP_DIRECTION;
 
 	public static final double TURRET_POSITION = 135.0; // degrees
-	
+
 	public static final double CAN_PICKUP_POSITION_ONE = 3.0; // inches
 	public static final double CAN_PICKUP_POSITION_TWO = 15.0;
 	public static final double CAN_PICKUP_POSITION_THREE = 21.0;
-	
+
 	public static final double FRONT_TOTE_PICKUP_POSITION_ONE = 26.0;
 	public static final double FRONT_TOTE_PICKUP_POSITION_TWO = 40.0;
 	public static final double FRONT_TOTE_PICKUP_POSITION_THREE = 44.0;
-	
+
 	public static final double SIDE_TOTE_PICKUP_POSITION = 26.0;
-	
+
 }
