@@ -22,7 +22,7 @@ public class OI {
 	public JoystickButton startSetpointButton;
 
 	public static final Gamepad operatorJoystick = new Gamepad(
-			GeneralConstants.OP_JOYSTICK);
+			GeneralConstants.OP_GAMEPAD);
 
 	public OI() {
 		startSetpointButton = new JoystickButton(driveJoystick,

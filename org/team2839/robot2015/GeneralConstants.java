@@ -27,7 +27,7 @@ public class GeneralConstants {
 	public static final int START_SETPOINT_BUTTON = 2;
 	public static final int SPIN_SETPOINT_BUTTON = 1;
 
-	public static final int OP_JOYSTICK = 1;
+	public static final int OP_GAMEPAD = 1;
 
 	// Miscellaneous
 	public static final double MAX_MOTOR_VOLTAGE = 5.0;
@@ -37,10 +37,31 @@ public class GeneralConstants {
 	public static final double AUTONOMOUS_DRIVE_SPEED = 0.5; // 0.0 to 1.0
 
 	public static final double TURRET_PULSES_PER_REVOLUTION = 2000.0;
+	public static final double TURRET_DEGREES_PER_PULSE = 360.0 / TURRET_PULSES_PER_REVOLUTION;
 	public static final double TWISTY_POT_MAX_VOLTAGE = 5.0;
 	public static final double TWISTY_POT_MIN_VOLTAGE = 0.0;
 	public static final double CAN_PICKUP_OFFSET = 0;
 	public static final double FRONT_TOTE_PICKUP_OFFSET = 0;
 	public static final double SIDE_TOTE_PICKUP_OFFSET = 0;
+	
+	public static final double TWISTY_POT_TURNS = 10.0;
+	public static final double CAN_PICKUP_INCHES_PER_TURN = 8.0;
+	public static final double CAN_PICKUP_INCHES_PER_VOLT = (CAN_PICKUP_INCHES_PER_TURN * TWISTY_POT_TURNS) / (TWISTY_POT_MAX_VOLTAGE - TWISTY_POT_MIN_VOLTAGE);
+	public static final double FRONT_TOTE_PICKUP_INCHES_PER_TURN = 5.5;
+	public static final double FRONT_TOTE_PICKUP_INCHES_PER_VOLT = (FRONT_TOTE_PICKUP_INCHES_PER_TURN * TWISTY_POT_TURNS) / (TWISTY_POT_MAX_VOLTAGE - TWISTY_POT_MIN_VOLTAGE);
+	public static final double SIDE_TOTE_PICKUP_INCHES_PER_TURN = 5.5;
+	public static final double SIDE_TOTE_PICKUP_INCHES_PER_VOLT = (SIDE_TOTE_PICKUP_INCHES_PER_TURN * TWISTY_POT_TURNS) / (TWISTY_POT_MAX_VOLTAGE - TWISTY_POT_MIN_VOLTAGE);
 
+	public static final double TURRET_POSITION = 135.0; // degrees
+	
+	public static final double CAN_PICKUP_POSITION_ONE = 3.0; // inches
+	public static final double CAN_PICKUP_POSITION_TWO = 15.0;
+	public static final double CAN_PICKUP_POSITION_THREE = 21.0;
+	
+	public static final double FRONT_TOTE_PICKUP_POSITION_ONE = 26.0;
+	public static final double FRONT_TOTE_PICKUP_POSITION_TWO = 40.0;
+	public static final double FRONT_TOTE_PICKUP_POSITION_THREE = 44.0;
+	
+	public static final double SIDE_TOTE_PICKUP_POSITION = 26.0;
+	
 }
