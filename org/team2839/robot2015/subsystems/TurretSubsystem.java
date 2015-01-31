@@ -2,6 +2,7 @@ package org.team2839.robot2015.subsystems;
 
 import org.team2839.robot2015.PIDConstants;
 import org.team2839.robot2015.PositionalQuadEncoder;
+import org.team2839.robot2015.RobotMap;
 import org.team2839.robot2015.commands.TurretStopCommand;
 
 import edu.wpi.first.wpilibj.Encoder;
@@ -22,8 +23,10 @@ public class TurretSubsystem extends PIDSubsystem {
 	public TurretSubsystem() {
 		super("TurnTableSubsystem", PIDConstants.TURNTABLE_P,
 				PIDConstants.TURNTABLE_I, PIDConstants.TURNTABLE_D);
+		encoder = RobotMap.turretEncoder;
+		speedController = RobotMap.turretMotor;
 		setAbsoluteTolerance(PIDConstants.TURNTABLE_ABSOLUTE_TOLERANCE);
-		getPIDController().setContinuous(true);
+		//getPIDController().setContinuous(true); // Probably a bad idea
 		LiveWindow.addActuator("TurnTableSubsystem", "PIDSubsystem Controller",
 				getPIDController());
 		getPIDController().setOutputRange(PIDConstants.TURNTABLE_OUTPUT_MIN,

@@ -5,6 +5,8 @@ import org.team2839.robot2015.commands.DriveSpinCommand;
 import org.team2839.robot2015.commands.DriveStartCommand;
 import org.team2839.robot2015.commands.DriveStopCommand;
 import org.team2839.robot2015.commands.DriveSwerveCommand;
+import org.team2839.robot2015.commands.SpecificCommands;
+import org.team2839.robot2015.commands.TurretZeroCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
@@ -23,6 +25,10 @@ public class OI {
 
 	public static final Gamepad operatorJoystick = new Gamepad(
 			GeneralConstants.OP_GAMEPAD);
+	public JoystickButton turretZeroButton;
+	private JoystickButton turretLeftButton;
+	private JoystickButton turretRightButton;
+	private JoystickButton turretOffBackButton;
 
 	public OI() {
 		startSetpointButton = new JoystickButton(driveJoystick,
@@ -34,6 +40,15 @@ public class OI {
 				GeneralConstants.SPIN_SETPOINT_BUTTON);
 		spinSetpointButton.whileHeld(new DriveSpinCommand());
 		spinSetpointButton.whenReleased(new DriveSwerveCommand());
+		
+		turretZeroButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_A);
+		turretZeroButton.whenReleased(new TurretZeroCommand());
+		turretLeftButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_B);
+		turretLeftButton.whenReleased(SpecificCommands.turretToLeft);
+		turretRightButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_X);
+		turretRightButton.whenReleased(SpecificCommands.turretToRight);
+		turretOffBackButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_Y);
+		turretOffBackButton.whenReleased(SpecificCommands.turretTo45OffBack);
 
 		SmartDashboard.putData("Autonomous Command",
 				new AutonomousCommandGroup());

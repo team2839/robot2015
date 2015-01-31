@@ -36,7 +36,7 @@ public class GeneralConstants {
 	public static final double DISTANCE_BETWEEN_TOTES = 85.0; // inches
 	public static final double AUTONOMOUS_DRIVE_SPEED = 0.5; // 0.0 to 1.0
 
-	public static final double TURRET_PULSES_PER_REVOLUTION = 2000.0;
+	public static final double TURRET_PULSES_PER_REVOLUTION = 500.0;
 	public static final double TURRET_DEGREES_PER_PULSE = 360.0 / TURRET_PULSES_PER_REVOLUTION;
 	public static final double TWISTY_POT_MAX_VOLTAGE = 5.0;
 	public static final double TWISTY_POT_MIN_VOLTAGE = 0.0;
@@ -68,7 +68,7 @@ public class GeneralConstants {
 	public static final double SIDE_TOTE_PICKUP_DOWN_DIRECTION = -1.0
 			* SIDE_TOTE_PICKUP_UP_DIRECTION;
 
-	public static final double TURRET_POSITION = 135.0; // degrees
+	public static final double TURRET_POSITION_45_OFF_BACK = 135.0; // degrees
 
 	public static final double CAN_PICKUP_POSITION_ONE = 3.0; // inches
 	public static final double CAN_PICKUP_POSITION_TWO = 15.0;

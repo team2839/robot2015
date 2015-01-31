@@ -166,6 +166,9 @@ public class Robot extends IterativeRobot {
 		rRSPIDSubsystem.updateStatus();
 		lRDPIDSubsystem.updateStatus();
 		lRSPIDSubsystem.updateStatus();
-		gyroRangefinder.updateStatus();
+		turretSubsystem.updateStatus();
+		canPickupSubsystem.updateStatus();
+		frontTotePickupSubsystem.updateStatus();
+		sideTotePickupSubsystem.updateStatus();
 	}
 }

@@ -3,6 +3,11 @@ package org.team2839.robot2015.commands;
 import org.team2839.robot2015.GeneralConstants;
 
 public class SpecificCommands {
+	
+	public static TurretMoveCommand turretToLeft = new TurretMoveCommand(GeneralConstants.TURRET_PULSES_PER_REVOLUTION);
+	public static TurretMoveCommand turretTo45OffBack = new TurretMoveCommand(GeneralConstants.TURRET_POSITION_45_OFF_BACK / GeneralConstants.TURRET_DEGREES_PER_PULSE);
+	public static TurretMoveCommand turretToRight = new TurretMoveCommand(0.0);
+	
 	public static CanLiftCommand canLifterToBottomCommand = new CanLiftCommand(
 			GeneralConstants.TWISTY_POT_MIN_VOLTAGE);
 	public static CanLiftCommand canLifterToFirstLevelCommand = new CanLiftCommand(

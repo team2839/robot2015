@@ -31,10 +31,10 @@ public class DriveTrainConstants {
 	public static final int RANGE_FINDER_GYRO = 1; // Must be in 1 or 2?
 
 	// Swerve offsets
-	public static final double LF_SWERVE_OFFSET = 2.48;
-	public static final double RF_SWERVE_OFFSET = 2.55;
-	public static final double RR_SWERVE_OFFSET = 2.56;
-	public static final double LR_SWERVE_OFFSET = 2.46;
+	public static final double LF_SWERVE_OFFSET = 4.485;
+	public static final double RF_SWERVE_OFFSET = 1.697;
+	public static final double RR_SWERVE_OFFSET = 1.997;
+	public static final double LR_SWERVE_OFFSET = 0.723;
 
 	public static final double LF_SWERVE_SPIN_OFFSET = LF_SWERVE_OFFSET + 1.81;
 	public static final double RF_SWERVE_SPIN_OFFSET = RF_SWERVE_OFFSET + 0.51;
