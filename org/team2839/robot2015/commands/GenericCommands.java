@@ -5,25 +5,28 @@ import org.team2839.robot2015.Robot;
 public class GenericCommands {
 
 	public static final void setSwerveSetpoint(double setpoint) {
-		Robot.lFSPIDSubsystem.enable();
-		Robot.lFSPIDSubsystem.setSetpoint(setpoint);
-		Robot.rFSPIDSubsystem.enable();
-		Robot.rFSPIDSubsystem.setSetpoint(setpoint);
-		Robot.rRSPIDSubsystem.enable();
-		Robot.rRSPIDSubsystem.setSetpoint(setpoint);
-		Robot.lRSPIDSubsystem.enable();
-		Robot.lRSPIDSubsystem.setSetpoint(setpoint);
+		Robot.leftFrontSwerve.enable();
+		Robot.leftFrontSwerve.setSetpoint(setpoint);
+		Robot.rightFrontSwerve.enable();
+		Robot.rightFrontSwerve.setSetpoint(setpoint);
+		Robot.rightRearSwerve.enable();
+		Robot.rightRearSwerve.setSetpoint(setpoint);
+		Robot.leftRearSwerve.enable();
+		Robot.leftRearSwerve.setSetpoint(setpoint);
 	}
 
 	public static final void setDriveSetpoint(double setpoint) {
-		Robot.lFDPIDSubsystem.enable();
-		Robot.lFDPIDSubsystem.setSetpoint(setpoint);
-		Robot.rFDPIDSubsystem.enable();
-		Robot.rFDPIDSubsystem.setSetpoint(setpoint);
-		Robot.rRDPIDSubsystem.enable();
-		Robot.rRDPIDSubsystem.setSetpoint(setpoint);
-		Robot.lRDPIDSubsystem.enable();
-		Robot.lRDPIDSubsystem.setSetpoint(setpoint);
+		if (Math.abs(setpoint) <= 0.1) {
+			setpoint = 0.0;
+		}
+		Robot.leftFrontDrive.enable();
+		Robot.leftFrontDrive.setSetpoint(setpoint);
+		Robot.rightFrontDrive.enable();
+		Robot.rightFrontDrive.setSetpoint(setpoint);
+		Robot.rightRearDrive.enable();
+		Robot.rightRearDrive.setSetpoint(setpoint);
+		Robot.leftRearDrive.enable();
+		Robot.leftRearDrive.setSetpoint(setpoint);
 	}
 
 }

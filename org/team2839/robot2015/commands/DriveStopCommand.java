@@ -10,10 +10,10 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveStopCommand extends Command {
 
 	public DriveStopCommand() {
-		requires(Robot.lFDPIDSubsystem);
-		requires(Robot.rFDPIDSubsystem);
-		requires(Robot.rRDPIDSubsystem);
-		requires(Robot.lRDPIDSubsystem);
+		requires(Robot.leftFrontDrive);
+		requires(Robot.rightFrontDrive);
+		requires(Robot.rightRearDrive);
+		requires(Robot.leftRearDrive);
 	}
 
 	// Called just before this Command runs the first time
@@ -22,14 +22,14 @@ public class DriveStopCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.lFDPIDSubsystem.enable();
-		Robot.lFDPIDSubsystem.setSetpoint(0);
-		Robot.rFDPIDSubsystem.enable();
-		Robot.rFDPIDSubsystem.setSetpoint(0);
-		Robot.rRDPIDSubsystem.enable();
-		Robot.rRDPIDSubsystem.setSetpoint(0);
-		Robot.lRDPIDSubsystem.enable();
-		Robot.lRDPIDSubsystem.setSetpoint(0);
+		Robot.leftFrontDrive.enable();
+		Robot.leftFrontDrive.setSetpoint(0);
+		Robot.rightFrontDrive.enable();
+		Robot.rightFrontDrive.setSetpoint(0);
+		Robot.rightRearDrive.enable();
+		Robot.rightRearDrive.setSetpoint(0);
+		Robot.leftRearDrive.enable();
+		Robot.leftRearDrive.setSetpoint(0);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

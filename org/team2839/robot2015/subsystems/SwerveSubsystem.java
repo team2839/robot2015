@@ -20,10 +20,10 @@ public class SwerveSubsystem extends PIDSubsystem {
 
 	// Initialize your subsystem here
 	public SwerveSubsystem(String name, AnalogInput pot,
-			SpeedController speedController, double swerveOffset) {
+			SpeedController speedController, double swerveOffset, double p, double i, double d) {
 		// add Kf speed value to "super" & change Kp, Ki & Kd as needed
-		super(name, PIDConstants.SWERVE_P, PIDConstants.SWERVE_I,
-				PIDConstants.SWERVE_D);
+		super(name, p, i,
+				d);
 		this.pot = pot;
 		this.speedController = speedController;
 		this.swerveOffset = swerveOffset;
@@ -59,7 +59,7 @@ public class SwerveSubsystem extends PIDSubsystem {
 
 	public void updateStatus() {
 		// Added in SD video
-		SmartDashboard.putNumber(name, (pot.getAverageVoltage())); // adds
+		SmartDashboard.putNumber(name, (pot.getAverageVoltage() - 2.5) % 5.0); // adds
 																	// sensor
 																	// output
 																	// to

@@ -15,16 +15,16 @@ public class AutonomousMoveLeftCommand extends Command {
 
 	@Override
 	protected void initialize() {
-		requires(Robot.lFSPIDSubsystem);
-		requires(Robot.rFSPIDSubsystem);
-		requires(Robot.rRSPIDSubsystem);
-		requires(Robot.lRSPIDSubsystem);
-		requires(Robot.lFDPIDSubsystem);
-		requires(Robot.rFDPIDSubsystem);
-		requires(Robot.rRDPIDSubsystem);
-		requires(Robot.lRDPIDSubsystem);
+		requires(Robot.leftFrontSwerve);
+		requires(Robot.rightFrontSwerve);
+		requires(Robot.rightRearSwerve);
+		requires(Robot.leftRearSwerve);
+		requires(Robot.leftFrontDrive);
+		requires(Robot.rightFrontDrive);
+		requires(Robot.rightRearDrive);
+		requires(Robot.leftRearDrive);
 
-		lFDEncoder = Robot.lFDPIDSubsystem.getEncoder();
+		lFDEncoder = Robot.leftFrontDrive.getEncoder();
 		lFDEncoder.reset();
 	}
 

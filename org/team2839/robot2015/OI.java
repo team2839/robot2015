@@ -64,10 +64,12 @@ public class OI {
 	 * a range defined in the constants
 	 */
 	public static double getNormalThrottle() {
-		double throttle = (driveJoystick.getThrottle() * -1.0) + 1.0;
-		double scaled = ((throttle * (DriveTrainConstants.THROTTLE_MAX - DriveTrainConstants.THROTTLE_MIN)) / 2.0)
-				+ DriveTrainConstants.THROTTLE_MIN;
-		return scaled;
+//		double throttle = (driveJoystick.getThrottle() * -1.0) + 1.0;
+//		double scaled = ((throttle * (DriveTrainConstants.THROTTLE_MAX - DriveTrainConstants.THROTTLE_MIN)) / 2.0)
+//				+ DriveTrainConstants.THROTTLE_MIN;
+//		return scaled;
+		double throttle = ((driveJoystick.getThrottle() * -1.0) + 1.0) / 2.0;
+		return throttle;
 	}
 
 }

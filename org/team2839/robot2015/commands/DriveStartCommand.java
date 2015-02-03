@@ -12,15 +12,15 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveStartCommand extends Command {
 
 	public DriveStartCommand() {
-		requires(Robot.lFSPIDSubsystem);
-		requires(Robot.rFSPIDSubsystem);
-		requires(Robot.rRSPIDSubsystem);
-		requires(Robot.lRSPIDSubsystem);
+		requires(Robot.leftFrontSwerve);
+		requires(Robot.rightFrontSwerve);
+		requires(Robot.rightRearSwerve);
+		requires(Robot.leftRearSwerve);
 
-		requires(Robot.lFDPIDSubsystem);
-		requires(Robot.rFDPIDSubsystem);
-		requires(Robot.rRDPIDSubsystem);
-		requires(Robot.lRDPIDSubsystem);
+		requires(Robot.leftFrontDrive);
+		requires(Robot.rightFrontDrive);
+		requires(Robot.rightRearDrive);
+		requires(Robot.leftRearDrive);
 	}
 
 	// Called just before this Command runs the first time
@@ -29,25 +29,18 @@ public class DriveStartCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.lFSPIDSubsystem.enable();
-		Robot.lFSPIDSubsystem.setSetpoint(DriveTrainConstants.LF_SWERVE_OFFSET);
-		Robot.rFSPIDSubsystem.enable();
-		Robot.rFSPIDSubsystem.setSetpoint(DriveTrainConstants.RF_SWERVE_OFFSET);
-		Robot.rRSPIDSubsystem.enable();
-		Robot.rRSPIDSubsystem.setSetpoint(DriveTrainConstants.RR_SWERVE_OFFSET);
-		Robot.lRSPIDSubsystem.enable();
-		Robot.lRSPIDSubsystem.setSetpoint(DriveTrainConstants.LR_SWERVE_OFFSET);
+		Robot.leftFrontSwerve.enable();
+		Robot.leftFrontSwerve.setSetpoint(DriveTrainConstants.LF_SWERVE_OFFSET);
+		Robot.rightFrontSwerve.enable();
+		Robot.rightFrontSwerve.setSetpoint(DriveTrainConstants.RF_SWERVE_OFFSET);
+		Robot.rightRearSwerve.enable();
+		Robot.rightRearSwerve.setSetpoint(DriveTrainConstants.RR_SWERVE_OFFSET);
+		Robot.leftRearSwerve.enable();
+		Robot.leftRearSwerve.setSetpoint(DriveTrainConstants.LR_SWERVE_OFFSET);
 
 		double speed = OI.driveJoystick.getY()
-				* DriveTrainConstants.DRIVE_MULTIPLIER * OI.getNormalThrottle();
-		Robot.lFDPIDSubsystem.enable();
-		Robot.lFDPIDSubsystem.setSetpoint(speed);
-		Robot.rFDPIDSubsystem.enable();
-		Robot.rFDPIDSubsystem.setSetpoint(speed);
-		Robot.rRDPIDSubsystem.enable();
-		Robot.rRDPIDSubsystem.setSetpoint(speed);
-		Robot.lRDPIDSubsystem.enable();
-		Robot.lRDPIDSubsystem.setSetpoint(speed);
+				* DriveTrainConstants.DRIVE_STRAIGHT_MULTIPLIER * OI.getNormalThrottle();
+		GenericCommands.setDriveSetpoint(speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

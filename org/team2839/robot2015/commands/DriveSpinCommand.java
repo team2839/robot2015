@@ -12,15 +12,15 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveSpinCommand extends Command {
 
 	public DriveSpinCommand() {
-		requires(Robot.lFSPIDSubsystem);
-		requires(Robot.rFSPIDSubsystem);
-		requires(Robot.rRSPIDSubsystem);
-		requires(Robot.lRSPIDSubsystem);
+		requires(Robot.leftFrontSwerve);
+		requires(Robot.rightFrontSwerve);
+		requires(Robot.rightRearSwerve);
+		requires(Robot.leftRearSwerve);
 
-		requires(Robot.lFDPIDSubsystem);
-		requires(Robot.rFDPIDSubsystem);
-		requires(Robot.rRDPIDSubsystem);
-		requires(Robot.lRDPIDSubsystem);
+		requires(Robot.leftFrontDrive);
+		requires(Robot.rightFrontDrive);
+		requires(Robot.rightRearDrive);
+		requires(Robot.leftRearDrive);
 	}
 
 	// Called just before this Command runs the first time
@@ -29,33 +29,33 @@ public class DriveSpinCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.lFSPIDSubsystem.enable();
-		Robot.lFSPIDSubsystem
+		Robot.leftFrontSwerve.enable();
+		Robot.leftFrontSwerve
 				.setSetpoint(DriveTrainConstants.LF_SWERVE_SPIN_OFFSET); // increase
 		// #
 		// to
 		// increase
 		// CCW
-		Robot.rFSPIDSubsystem.enable();
-		Robot.rFSPIDSubsystem
+		Robot.rightFrontSwerve.enable();
+		Robot.rightFrontSwerve
 				.setSetpoint(DriveTrainConstants.RF_SWERVE_SPIN_OFFSET);
-		Robot.rRSPIDSubsystem.enable();
-		Robot.rRSPIDSubsystem
+		Robot.rightRearSwerve.enable();
+		Robot.rightRearSwerve
 				.setSetpoint(DriveTrainConstants.RR_SWERVE_SPIN_OFFSET);
-		Robot.lRSPIDSubsystem.enable();
-		Robot.lRSPIDSubsystem
+		Robot.leftRearSwerve.enable();
+		Robot.leftRearSwerve
 				.setSetpoint(DriveTrainConstants.LR_SWERVE_SPIN_OFFSET);
 
 		double speed = OI.driveJoystick.getTwist()
 				* DriveTrainConstants.SPIN_MULTIPLIER * OI.getNormalThrottle();
-		Robot.lFDPIDSubsystem.enable();
-		Robot.lFDPIDSubsystem.setSetpoint(speed);
-		Robot.rFDPIDSubsystem.enable();
-		Robot.rFDPIDSubsystem.setSetpoint(speed);
-		Robot.rRDPIDSubsystem.enable();
-		Robot.rRDPIDSubsystem.setSetpoint(speed);
-		Robot.lRDPIDSubsystem.enable();
-		Robot.lRDPIDSubsystem.setSetpoint(speed);
+		Robot.leftFrontDrive.enable();
+		Robot.leftFrontDrive.setSetpoint(speed);
+		Robot.rightFrontDrive.enable();
+		Robot.rightFrontDrive.setSetpoint(speed);
+		Robot.rightRearDrive.enable();
+		Robot.rightRearDrive.setSetpoint(speed);
+		Robot.leftRearDrive.enable();
+		Robot.leftRearDrive.setSetpoint(speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

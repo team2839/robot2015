@@ -25,14 +25,14 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 public class Robot extends IterativeRobot {
 	Command autonomousCommand;
 	public static OI oi;
-	public static SwerveSubsystem lFSPIDSubsystem;
-	public static DriveSubsystem lFDPIDSubsystem;
-	public static SwerveSubsystem rFSPIDSubsystem;
-	public static DriveSubsystem rFDPIDSubsystem;
-	public static SwerveSubsystem rRSPIDSubsystem;
-	public static DriveSubsystem rRDPIDSubsystem;
-	public static SwerveSubsystem lRSPIDSubsystem;
-	public static DriveSubsystem lRDPIDSubsystem;
+	public static SwerveSubsystem leftFrontSwerve;
+	public static DriveSubsystem leftFrontDrive;
+	public static SwerveSubsystem rightFrontSwerve;
+	public static DriveSubsystem rightFrontDrive;
+	public static SwerveSubsystem rightRearSwerve;
+	public static DriveSubsystem rightRearDrive;
+	public static SwerveSubsystem leftRearSwerve;
+	public static DriveSubsystem leftRearDrive;
 
 	public static TurretSubsystem turretSubsystem;
 	public static CanSubsystem canPickupSubsystem;
@@ -54,25 +54,25 @@ public class Robot extends IterativeRobot {
 	 */
 	public void robotInit() {
 		RobotMap.init();
-		lFSPIDSubsystem = new SwerveSubsystem("LFSPIDSubsystem",
+		leftFrontSwerve = new SwerveSubsystem("LFSPIDSubsystem",
 				RobotMap.LFSPot, RobotMap.LFSSpeedController,
-				DriveTrainConstants.LF_SWERVE_OFFSET);
-		lFDPIDSubsystem = new DriveSubsystem("LFDPIDSubsystem",
+				DriveTrainConstants.LF_SWERVE_OFFSET, PIDConstants.LF_SWERVE_P, PIDConstants.LF_SWERVE_I, PIDConstants.LF_SWERVE_D);
+		leftFrontDrive = new DriveSubsystem("LFDPIDSubsystem",
 				RobotMap.LFDEncoder, RobotMap.LFDSpeedController);
-		rFSPIDSubsystem = new SwerveSubsystem("RFSPIDSubsystem",
+		rightFrontSwerve = new SwerveSubsystem("RFSPIDSubsystem",
 				RobotMap.RFSPot, RobotMap.RFSSpeedController,
-				DriveTrainConstants.RF_SWERVE_OFFSET);
-		rFDPIDSubsystem = new DriveSubsystem("RFDPIDSubsystem",
+				DriveTrainConstants.RF_SWERVE_OFFSET, PIDConstants.RF_SWERVE_P, PIDConstants.RF_SWERVE_I, PIDConstants.RF_SWERVE_D);
+		rightFrontDrive = new DriveSubsystem("RFDPIDSubsystem",
 				RobotMap.RFDEncoder, RobotMap.RFDSpeedController);
-		rRSPIDSubsystem = new SwerveSubsystem("RRSPIDSubsystem",
+		rightRearSwerve = new SwerveSubsystem("RRSPIDSubsystem",
 				RobotMap.RRSPot, RobotMap.RRSSpeedController,
-				DriveTrainConstants.RR_SWERVE_OFFSET);
-		rRDPIDSubsystem = new DriveSubsystem("RRDPIDSubsystem",
+				DriveTrainConstants.RR_SWERVE_OFFSET, PIDConstants.RR_SWERVE_P, PIDConstants.RR_SWERVE_I, PIDConstants.RR_SWERVE_D);
+		rightRearDrive = new DriveSubsystem("RRDPIDSubsystem",
 				RobotMap.RRDEncoder, RobotMap.RRDSpeedController);
-		lRSPIDSubsystem = new SwerveSubsystem("LRSPIDSubsystem",
+		leftRearSwerve = new SwerveSubsystem("LRSPIDSubsystem",
 				RobotMap.LRSPot, RobotMap.LRSSpeedController,
-				DriveTrainConstants.LR_SWERVE_OFFSET);
-		lRDPIDSubsystem = new DriveSubsystem("LRDPIDSubsystem",
+				DriveTrainConstants.LR_SWERVE_OFFSET, PIDConstants.LR_SWERVE_P, PIDConstants.LR_SWERVE_I, PIDConstants.LR_SWERVE_D);
+		leftRearDrive = new DriveSubsystem("LRDPIDSubsystem",
 				RobotMap.LRDEncoder, RobotMap.LRDSpeedController);
 		gyroRangefinder = new GyroRangefinder();
 
@@ -158,14 +158,14 @@ public class Robot extends IterativeRobot {
 	}
 
 	public void updateStatus() { // added in SD video
-		lFDPIDSubsystem.updateStatus();
-		lFSPIDSubsystem.updateStatus();
-		rFDPIDSubsystem.updateStatus();
-		rFSPIDSubsystem.updateStatus();
-		rRDPIDSubsystem.updateStatus();
-		rRSPIDSubsystem.updateStatus();
-		lRDPIDSubsystem.updateStatus();
-		lRSPIDSubsystem.updateStatus();
+		leftFrontDrive.updateStatus();
+		leftFrontSwerve.updateStatus();
+		rightFrontDrive.updateStatus();
+		rightFrontSwerve.updateStatus();
+		rightRearDrive.updateStatus();
+		rightRearSwerve.updateStatus();
+		leftRearDrive.updateStatus();
+		leftRearSwerve.updateStatus();
 		turretSubsystem.updateStatus();
 		canPickupSubsystem.updateStatus();
 		frontTotePickupSubsystem.updateStatus();

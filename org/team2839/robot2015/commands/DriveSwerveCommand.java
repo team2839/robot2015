@@ -13,14 +13,14 @@ import edu.wpi.first.wpilibj.command.Command;
 public class DriveSwerveCommand extends Command {
 
 	public DriveSwerveCommand() {
-		requires(Robot.lFSPIDSubsystem);
-		requires(Robot.rFSPIDSubsystem);
-		requires(Robot.rRSPIDSubsystem);
-		requires(Robot.lRSPIDSubsystem);
-		requires(Robot.lFDPIDSubsystem);
-		requires(Robot.rFDPIDSubsystem);
-		requires(Robot.rRDPIDSubsystem);
-		requires(Robot.lRDPIDSubsystem);
+		requires(Robot.leftFrontSwerve);
+		requires(Robot.rightFrontSwerve);
+		requires(Robot.rightRearSwerve);
+		requires(Robot.leftRearSwerve);
+		requires(Robot.leftFrontDrive);
+		requires(Robot.rightFrontDrive);
+		requires(Robot.rightRearDrive);
+		requires(Robot.leftRearDrive);
 	}
 
 	// Called just before this Command runs the first time
