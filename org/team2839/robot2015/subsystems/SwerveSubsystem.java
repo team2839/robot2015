@@ -59,11 +59,8 @@ public class SwerveSubsystem extends PIDSubsystem {
 
 	public void updateStatus() {
 		// Added in SD video
-		SmartDashboard.putNumber(name, (pot.getAverageVoltage() - 2.5) % 5.0); // adds
-																	// sensor
-																	// output
-																	// to
-																	// SmartDashboard
+		SmartDashboard.putNumber(name, pot.getAverageVoltage());
+		SmartDashboard.putNumber(name + "Motor", speedController.get());
 	}
 
 }

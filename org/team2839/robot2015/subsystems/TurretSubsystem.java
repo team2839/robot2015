@@ -40,7 +40,7 @@ public class TurretSubsystem extends PIDSubsystem {
 	}
 
 	protected double returnPIDInput() {
-		return encoder.pidGet();
+		return encoder.pidGet() * -1;
 	}
 
 	protected void usePIDOutput(double output) {

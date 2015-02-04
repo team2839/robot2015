@@ -1,6 +1,7 @@
 package org.team2839.robot2015.commands;
 
 import org.team2839.robot2015.GeneralConstants;
+import org.team2839.robot2015.PIDConstants;
 import org.team2839.robot2015.Robot;
 import org.team2839.robot2015.RobotMap;
 
@@ -21,7 +22,7 @@ public class TurretZeroCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		RobotMap.turretMotor.set(GeneralConstants.TURRET_RIGHT_DIRECTION * 0.25);
+		RobotMap.turretMotor.set(GeneralConstants.TURRET_RIGHT_DIRECTION * 0.15);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

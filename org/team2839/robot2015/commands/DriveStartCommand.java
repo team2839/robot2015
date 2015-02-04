@@ -30,13 +30,13 @@ public class DriveStartCommand extends Command {
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
 		Robot.leftFrontSwerve.enable();
-		Robot.leftFrontSwerve.setSetpoint(DriveTrainConstants.LF_SWERVE_OFFSET);
+		Robot.leftFrontSwerve.setSetpoint(0);
 		Robot.rightFrontSwerve.enable();
-		Robot.rightFrontSwerve.setSetpoint(DriveTrainConstants.RF_SWERVE_OFFSET);
+		Robot.rightFrontSwerve.setSetpoint(0);
 		Robot.rightRearSwerve.enable();
-		Robot.rightRearSwerve.setSetpoint(DriveTrainConstants.RR_SWERVE_OFFSET);
+		Robot.rightRearSwerve.setSetpoint(0);
 		Robot.leftRearSwerve.enable();
-		Robot.leftRearSwerve.setSetpoint(DriveTrainConstants.LR_SWERVE_OFFSET);
+		Robot.leftRearSwerve.setSetpoint(0);
 
 		double speed = OI.driveJoystick.getY()
 				* DriveTrainConstants.DRIVE_STRAIGHT_MULTIPLIER * OI.getNormalThrottle();

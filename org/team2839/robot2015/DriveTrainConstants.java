@@ -31,19 +31,20 @@ public class DriveTrainConstants {
 	public static final int RANGE_FINDER_GYRO = 1; // Must be in 1 or 2?
 
 	// Swerve offsets
-	public static final double LF_SWERVE_OFFSET = 2.44;
-	public static final double RF_SWERVE_OFFSET = 2.25;
-	public static final double RR_SWERVE_OFFSET = 2.44;
-	public static final double LR_SWERVE_OFFSET = 2.41;
+	public static final double LF_SWERVE_OFFSET = 1.43;
+	public static final double RF_SWERVE_OFFSET = 1.06;
+	public static final double RR_SWERVE_OFFSET = 1.42;
+	public static final double LR_SWERVE_OFFSET = 1.38;
 
-	public static final double LF_SWERVE_SPIN_OFFSET = LF_SWERVE_OFFSET + 1.73;
-	public static final double RF_SWERVE_SPIN_OFFSET = RF_SWERVE_OFFSET + 0.94;
-	public static final double RR_SWERVE_SPIN_OFFSET = RR_SWERVE_OFFSET - 0.64;
-	public static final double LR_SWERVE_SPIN_OFFSET = LR_SWERVE_OFFSET - 1.60;
+	public static final double LF_SWERVE_SPIN_OFFSET = 1.771;
+	public static final double RF_SWERVE_SPIN_OFFSET = 0.729;
+	public static final double RR_SWERVE_SPIN_OFFSET = 4.271;
+	public static final double LR_SWERVE_SPIN_OFFSET = 3.229;
 
 	// Speed multipliers
-	public static final double SPIN_MULTIPLIER = -0.5;
+	public static final double SPIN_MULTIPLIER = 0.5;
 	public static final double DRIVE_MULTIPLIER = 1.0;
+	public static final double DRIVE_STRAIGHT_MULTIPLIER = 1.0;
 	public static final double SWERVE_MULTIPLIER = 0.5;
 
 	public static final double THROTTLE_MIN = 0.1;
@@ -59,6 +60,5 @@ public class DriveTrainConstants {
 	public static final double PULSES_PER_REVOLUTION = 200.0;
 	public static final double DISTANCE_PER_PULSE = DISTANCE_PER_REVOLUTION
 			/ PULSES_PER_REVOLUTION;
-	public static final double DRIVE_STRAIGHT_MULTIPLIER = -1.0;
 
 }

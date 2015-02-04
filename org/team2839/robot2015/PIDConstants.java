@@ -2,7 +2,7 @@ package org.team2839.robot2015;
 
 public class PIDConstants {
 
-	public static final double DRIVE_P = 0.001;
+	public static final double DRIVE_P = 0.002;
 	public static final double DRIVE_I = 0.0;
 	public static final double DRIVE_D = 0.0;
 	public static final double DRIVE_F = 2.0;
@@ -13,7 +13,7 @@ public class PIDConstants {
 	public static final double DRIVE_ABSOLUTE_TOLERANCE = 0.2;
 
 	public static final double RF_SWERVE_P = 1.9;
-	public static final double RF_SWERVE_I = 0.1;
+	public static final double RF_SWERVE_I = 0.0;
 	public static final double RF_SWERVE_D = 0.0;
 	public static final double RF_SWERVE_ABSOLUTE_TOLERANCE = 0.001;
 	
@@ -39,12 +39,12 @@ public class PIDConstants {
 
 	public static final double SWERVE_ABSOLUTE_TOLERANCE = 0.001;
 
-	public static final double TURNTABLE_P = 0.5;
+	public static final double TURNTABLE_P = 1.0;
 	public static final double TURNTABLE_I = 0.0;
 	public static final double TURNTABLE_D = 0.0;
 
-	public static final double TURNTABLE_OUTPUT_MIN = -1.0;
-	public static final double TURNTABLE_OUTPUT_MAX = 1.0;
+	public static final double TURNTABLE_OUTPUT_MIN = -0.15;
+	public static final double TURNTABLE_OUTPUT_MAX = 0.15;
 	public static final double TURNTABLE_INPUT_MIN = 0.0;
 	public static final double TURNTABLE_INPUT_MAX = GeneralConstants.TURRET_PULSES_PER_REVOLUTION;
 
