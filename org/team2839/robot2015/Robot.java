@@ -14,6 +14,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.vision.AxisCamera;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -45,7 +46,7 @@ public class Robot extends IterativeRobot {
 
 	// int session;
 	// Image frame;
-	// AxisCamera camera;
+	 AxisCamera camera;
 	// NIVision.Rect rect;
 
 	/**
@@ -96,7 +97,6 @@ public class Robot extends IterativeRobot {
 		// the camera name (ex "cam0") can be found through the roborio web
 		// interface
 		server.startAutomaticCapture("cam0");
-		server.startAutomaticCapture("cam3");
 
 		// frame = NIVision.imaqCreateImage(NIVision.ImageType.IMAGE_RGB, 0);
 		//
@@ -127,7 +127,7 @@ public class Robot extends IterativeRobot {
 		updateStatus(); // added in SD video
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-		// rect = new NIVision.Rect(10, 10, 100, 100);
+//		 rect = new NIVision.Rect(10, 10, 100, 100);
 	}
 
 	/**
@@ -135,8 +135,9 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		RobotMap.LRDSpeedController.set(0.3);
 		updateStatus(); // added in SD video
-		// camera.getImage(frame);
+//		 camera.getImage(frame);
 		// NIVision.imaqDrawShapeOnImage(frame, frame, rect,
 		// DrawMode.DRAW_VALUE,
 		// ShapeMode.SHAPE_OVAL, 0.0f);

@@ -47,7 +47,7 @@ public class DriveSpinCommand extends Command {
 				.setSetpoint(DriveTrainConstants.LR_SWERVE_SPIN_OFFSET);
 
 		double speed = OI.driveJoystick.getTwist()
-				* DriveTrainConstants.SPIN_MULTIPLIER * OI.getNormalThrottle();
+				* DriveTrainConstants.SPIN_MULTIPLIER;
 		Robot.leftFrontDrive.enable();
 		Robot.leftFrontDrive.setSetpoint(speed);
 		Robot.rightFrontDrive.enable();

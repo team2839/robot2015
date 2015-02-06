@@ -42,7 +42,7 @@ public class DriveTrainConstants {
 	public static final double LR_SWERVE_SPIN_OFFSET = 3.229;
 
 	// Speed multipliers
-	public static final double SPIN_MULTIPLIER = 0.5;
+	public static final double SPIN_MULTIPLIER = 0.20;
 	public static final double DRIVE_MULTIPLIER = 1.0;
 	public static final double DRIVE_STRAIGHT_MULTIPLIER = 1.0;
 	public static final double SWERVE_MULTIPLIER = 0.5;
