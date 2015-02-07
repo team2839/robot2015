@@ -3,7 +3,6 @@ package org.team2839.robot2015.subsystems;
 import org.team2839.robot2015.PIDConstants;
 import org.team2839.robot2015.PositionalQuadEncoder;
 import org.team2839.robot2015.RobotMap;
-import org.team2839.robot2015.commands.TurretStopCommand;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -14,33 +13,33 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /**
  *
  */
-public class TurretSubsystem extends PIDSubsystem {
+public class LifterCamSubsystem extends PIDSubsystem {
 
 	private PositionalQuadEncoder encoder;
 	private SpeedController speedController;
 
 	// Initialize your subsystem here
-	public TurretSubsystem() {
-		super("TurnTableSubsystem", PIDConstants.TURNTABLE_P,
-				PIDConstants.TURNTABLE_I, PIDConstants.TURNTABLE_D);
-		encoder = RobotMap.turretEncoder;
-		speedController = RobotMap.turretMotor;
-		setAbsoluteTolerance(PIDConstants.TURNTABLE_ABSOLUTE_TOLERANCE);
+	public LifterCamSubsystem() {
+		super("LifterCamSubsystem", PIDConstants.CAM_P, PIDConstants.CAM_I,
+				PIDConstants.CAM_D);
+		encoder = RobotMap.lifterCamEncoder;
+		speedController = RobotMap.lifterCamMotor;
+		setAbsoluteTolerance(PIDConstants.CAM_ABSOLUTE_TOLERANCE);
 		// getPIDController().setContinuous(true); // Probably a bad idea
-		LiveWindow.addActuator("TurnTableSubsystem", "PIDSubsystem Controller",
+		LiveWindow.addActuator("LifterCamSubsystem", "PIDSubsystem Controller",
 				getPIDController());
-		getPIDController().setOutputRange(PIDConstants.TURNTABLE_OUTPUT_MIN,
-				PIDConstants.TURNTABLE_OUTPUT_MAX);
-		getPIDController().setInputRange(PIDConstants.TURNTABLE_INPUT_MIN,
-				PIDConstants.TURNTABLE_INPUT_MAX);
+		getPIDController().setOutputRange(PIDConstants.CAM_OUTPUT_MIN,
+				PIDConstants.CAM_OUTPUT_MAX);
+		getPIDController().setInputRange(PIDConstants.CAM_INPUT_MIN,
+				PIDConstants.CAM_INPUT_MAX);
 	}
 
 	public void initDefaultCommand() {
-		setDefaultCommand(new TurretStopCommand());
+		// setDefaultCommand(new LifterCamStopCommand());
 	}
 
 	protected double returnPIDInput() {
-		return encoder.pidGet() * -1;
+		return encoder.pidGet();
 	}
 
 	protected void usePIDOutput(double output) {

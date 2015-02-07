@@ -9,10 +9,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class TurretZeroCommand extends Command {
+public class LifterCamZeroCommand extends Command {
 
-	public TurretZeroCommand() {
-		requires(Robot.turretSubsystem);
+	public LifterCamZeroCommand() {
+		requires(Robot.lifterCamSubsystem);
 	}
 
 	// Called just before this Command runs the first time
@@ -21,18 +21,17 @@ public class TurretZeroCommand extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		RobotMap.turretMotor
-				.set(GeneralConstants.TURRET_RIGHT_DIRECTION * 0.15);
+		RobotMap.lifterCamMotor.set(GeneralConstants.CAM_OUT_DIRECTION * 0.15);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return RobotMap.turretRightLimitSwitch.get();
+		return RobotMap.lifterCamZeroLimitSwitch.get();
 	}
 
 	// Called once after isFinished returns true
 	protected void end() {
-		RobotMap.turretEncoder.reset();
+		RobotMap.lifterCamEncoder.reset();
 	}
 
 	// Called when another command which requires one or more of the same

@@ -20,10 +20,10 @@ public class SwerveSubsystem extends PIDSubsystem {
 
 	// Initialize your subsystem here
 	public SwerveSubsystem(String name, AnalogInput pot,
-			SpeedController speedController, double swerveOffset, double p, double i, double d) {
+			SpeedController speedController, double swerveOffset, double p,
+			double i, double d) {
 		// add Kf speed value to "super" & change Kp, Ki & Kd as needed
-		super(name, p, i,
-				d);
+		super(name, p, i, d);
 		this.pot = pot;
 		this.speedController = speedController;
 		this.swerveOffset = swerveOffset;

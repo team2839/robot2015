@@ -16,17 +16,17 @@ public class PIDConstants {
 	public static final double RF_SWERVE_I = 0.0;
 	public static final double RF_SWERVE_D = 0.0;
 	public static final double RF_SWERVE_ABSOLUTE_TOLERANCE = 0.001;
-	
+
 	public static final double LF_SWERVE_P = 1.6;
 	public static final double LF_SWERVE_I = 0.0;
 	public static final double LF_SWERVE_D = 0.0;
 	public static final double LF_SWERVE_ABSOLUTE_TOLERANCE = 0.001;
-	
+
 	public static final double RR_SWERVE_P = 1.6;
 	public static final double RR_SWERVE_I = 0.0;
 	public static final double RR_SWERVE_D = 0.0;
 	public static final double RR_SWERVE_ABSOLUTE_TOLERANCE = 0.001;
-	
+
 	public static final double LR_SWERVE_P = 2.1;
 	public static final double LR_SWERVE_I = 0.0;
 	public static final double LR_SWERVE_D = 0.0;
@@ -60,5 +60,16 @@ public class PIDConstants {
 	public static final double LIFTER_INPUT_MAX = GeneralConstants.TWISTY_POT_MAX_VOLTAGE;
 
 	public static final double LIFTER_ABSOLUTE_TOLERANCE = 2.0;
+
+	public static final double CAM_P = 1.0;
+	public static final double CAM_I = 0.0;
+	public static final double CAM_D = 0.0;
+
+	public static final double CAM_OUTPUT_MIN = -0.15;
+	public static final double CAM_OUTPUT_MAX = 0.15;
+	public static final double CAM_INPUT_MIN = 0.0;
+	public static final double CAM_INPUT_MAX = GeneralConstants.TURRET_PULSES_PER_REVOLUTION;
+
+	public static final double CAM_ABSOLUTE_TOLERANCE = 2.0;
 
 }

@@ -5,6 +5,8 @@ import org.team2839.robot2015.commands.DriveSpinCommand;
 import org.team2839.robot2015.commands.DriveStartCommand;
 import org.team2839.robot2015.commands.DriveStopCommand;
 import org.team2839.robot2015.commands.DriveSwerveCommand;
+import org.team2839.robot2015.commands.LifterCamMoveCommand;
+import org.team2839.robot2015.commands.LifterCamZeroCommand;
 import org.team2839.robot2015.commands.SpecificCommands;
 import org.team2839.robot2015.commands.TurretZeroCommand;
 
@@ -30,6 +32,10 @@ public class OI {
 	private JoystickButton turretRightButton;
 	private JoystickButton turretOffBackButton;
 
+	private JoystickButton camZeroButton;
+	private JoystickButton camInButton;
+	private JoystickButton camOutButton;
+
 	public OI() {
 		startSetpointButton = new JoystickButton(driveJoystick,
 				GeneralConstants.START_SETPOINT_BUTTON);
@@ -40,15 +46,28 @@ public class OI {
 				GeneralConstants.SPIN_SETPOINT_BUTTON);
 		spinSetpointButton.whileHeld(new DriveSpinCommand());
 		spinSetpointButton.whenReleased(new DriveSwerveCommand());
-		
-		turretZeroButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_A);
-		turretZeroButton.whenReleased(new TurretZeroCommand());
-		turretLeftButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_B);
-		turretLeftButton.whenReleased(SpecificCommands.turretToLeft);
-		turretRightButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_X);
-		turretRightButton.whenReleased(SpecificCommands.turretToRight);
-		turretOffBackButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_Y);
-		turretOffBackButton.whenReleased(SpecificCommands.turretTo45OffBack);
+
+		// turretZeroButton = new JoystickButton(operatorJoystick,
+		// Gamepad.BUTTON_A);
+		// turretZeroButton.whenReleased(new TurretZeroCommand());
+		// turretLeftButton = new JoystickButton(operatorJoystick,
+		// Gamepad.BUTTON_B);
+		// turretLeftButton.whenReleased(SpecificCommands.turretToLeft);
+		// turretRightButton = new JoystickButton(operatorJoystick,
+		// Gamepad.BUTTON_X);
+		// turretRightButton.whenReleased(SpecificCommands.turretToRight);
+		// turretOffBackButton = new JoystickButton(operatorJoystick,
+		// Gamepad.BUTTON_Y);
+		// turretOffBackButton.whenReleased(SpecificCommands.turretTo45OffBack);
+
+		camZeroButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_A);
+		camZeroButton.whenReleased(new LifterCamZeroCommand());
+		camInButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_B);
+		camInButton.whenReleased(new LifterCamMoveCommand(
+				GeneralConstants.CAM_IN_POSITION));
+		camOutButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_X);
+		camOutButton.whenReleased(new LifterCamMoveCommand(
+				GeneralConstants.CAM_OUT_POSITION));
 
 		SmartDashboard.putData("Autonomous Command",
 				new AutonomousCommandGroup());
@@ -64,10 +83,11 @@ public class OI {
 	 * a range defined in the constants
 	 */
 	public static double getNormalThrottle() {
-//		double throttle = (driveJoystick.getThrottle() * -1.0) + 1.0;
-//		double scaled = ((throttle * (DriveTrainConstants.THROTTLE_MAX - DriveTrainConstants.THROTTLE_MIN)) / 2.0)
-//				+ DriveTrainConstants.THROTTLE_MIN;
-//		return scaled;
+		// double throttle = (driveJoystick.getThrottle() * -1.0) + 1.0;
+		// double scaled = ((throttle * (DriveTrainConstants.THROTTLE_MAX -
+		// DriveTrainConstants.THROTTLE_MIN)) / 2.0)
+		// + DriveTrainConstants.THROTTLE_MIN;
+		// return scaled;
 		double throttle = ((driveJoystick.getThrottle() * -1.0) + 1.0) / 2.0;
 		return throttle;
 	}

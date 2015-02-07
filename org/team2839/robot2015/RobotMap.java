@@ -55,6 +55,10 @@ public class RobotMap {
 	public static DigitalInput sideTotePickupTopLimitSwitch;
 	public static DigitalInput sideTotePickupBottomLimitSwitch;
 
+	public static PositionalQuadEncoder lifterCamEncoder;
+	public static SpeedController lifterCamMotor;
+	public static DigitalInput lifterCamZeroLimitSwitch;
+
 	// public static Gyro gyroRangefinderGyro1;
 	// public static AnalogInput gyroRangefinderRangefinder;
 
@@ -192,6 +196,21 @@ public class RobotMap {
 				GeneralConstants.SIDE_TOTE_PICKUP_BOTTOM_SENSOR);
 		LiveWindow.addSensor("Side Tote Subsystem", "Side Tote Bottom Sensor",
 				(LiveWindowSendable) sideTotePickupBottomLimitSwitch);
+
+		lifterCamEncoder = new PositionalQuadEncoder(
+				GeneralConstants.CAM_ENCODER_A, GeneralConstants.CAM_ENCODER_B,
+				false, EncodingType.k1X);
+		lifterCamEncoder
+				.setPulsesPerRevolution(GeneralConstants.TURRET_PULSES_PER_REVOLUTION);
+		LiveWindow.addSensor("Cam Subsystem", "Cam Encoder",
+				(LiveWindowSendable) lifterCamEncoder);
+		lifterCamMotor = new Victor(GeneralConstants.CAM_MOTOR);
+		LiveWindow.addActuator("Cam Subsystem", "Cam Speed Controller",
+				(LiveWindowSendable) lifterCamMotor);
+		lifterCamZeroLimitSwitch = new DigitalInput(
+				GeneralConstants.CAM_ZERO_SENSOR);
+		LiveWindow.addSensor("Cam Subsystem", "Cam Zero Sensor",
+				(LiveWindowSendable) lifterCamZeroLimitSwitch);
 
 		// gyroRangefinderGyro1 = new Gyro(Constants.RANGE_FINDER_GYRO);
 		// gyroRangefinderRangefinder = new AnalogInput(Constants.RANGE_FINDER);

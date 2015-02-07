@@ -5,6 +5,7 @@ import org.team2839.robot2015.subsystems.CanSubsystem;
 import org.team2839.robot2015.subsystems.DriveSubsystem;
 import org.team2839.robot2015.subsystems.FrontToteSubsystem;
 import org.team2839.robot2015.subsystems.GyroRangefinder;
+import org.team2839.robot2015.subsystems.LifterCamSubsystem;
 import org.team2839.robot2015.subsystems.SideToteSubsystem;
 import org.team2839.robot2015.subsystems.SwerveSubsystem;
 import org.team2839.robot2015.subsystems.TurretSubsystem;
@@ -39,6 +40,7 @@ public class Robot extends IterativeRobot {
 	public static CanSubsystem canPickupSubsystem;
 	public static FrontToteSubsystem frontTotePickupSubsystem;
 	public static SideToteSubsystem sideTotePickupSubsystem;
+	public static LifterCamSubsystem lifterCamSubsystem;
 
 	public static GyroRangefinder gyroRangefinder;
 
@@ -46,8 +48,9 @@ public class Robot extends IterativeRobot {
 
 	// int session;
 	// Image frame;
-	 AxisCamera camera;
+	public AxisCamera camera;
 	// NIVision.Rect rect;
+	public AxisCamera camera2;
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -57,22 +60,26 @@ public class Robot extends IterativeRobot {
 		RobotMap.init();
 		leftFrontSwerve = new SwerveSubsystem("LFSPIDSubsystem",
 				RobotMap.LFSPot, RobotMap.LFSSpeedController,
-				DriveTrainConstants.LF_SWERVE_OFFSET, PIDConstants.LF_SWERVE_P, PIDConstants.LF_SWERVE_I, PIDConstants.LF_SWERVE_D);
+				DriveTrainConstants.LF_SWERVE_OFFSET, PIDConstants.LF_SWERVE_P,
+				PIDConstants.LF_SWERVE_I, PIDConstants.LF_SWERVE_D);
 		leftFrontDrive = new DriveSubsystem("LFDPIDSubsystem",
 				RobotMap.LFDEncoder, RobotMap.LFDSpeedController);
 		rightFrontSwerve = new SwerveSubsystem("RFSPIDSubsystem",
 				RobotMap.RFSPot, RobotMap.RFSSpeedController,
-				DriveTrainConstants.RF_SWERVE_OFFSET, PIDConstants.RF_SWERVE_P, PIDConstants.RF_SWERVE_I, PIDConstants.RF_SWERVE_D);
+				DriveTrainConstants.RF_SWERVE_OFFSET, PIDConstants.RF_SWERVE_P,
+				PIDConstants.RF_SWERVE_I, PIDConstants.RF_SWERVE_D);
 		rightFrontDrive = new DriveSubsystem("RFDPIDSubsystem",
 				RobotMap.RFDEncoder, RobotMap.RFDSpeedController);
 		rightRearSwerve = new SwerveSubsystem("RRSPIDSubsystem",
 				RobotMap.RRSPot, RobotMap.RRSSpeedController,
-				DriveTrainConstants.RR_SWERVE_OFFSET, PIDConstants.RR_SWERVE_P, PIDConstants.RR_SWERVE_I, PIDConstants.RR_SWERVE_D);
+				DriveTrainConstants.RR_SWERVE_OFFSET, PIDConstants.RR_SWERVE_P,
+				PIDConstants.RR_SWERVE_I, PIDConstants.RR_SWERVE_D);
 		rightRearDrive = new DriveSubsystem("RRDPIDSubsystem",
 				RobotMap.RRDEncoder, RobotMap.RRDSpeedController);
 		leftRearSwerve = new SwerveSubsystem("LRSPIDSubsystem",
 				RobotMap.LRSPot, RobotMap.LRSSpeedController,
-				DriveTrainConstants.LR_SWERVE_OFFSET, PIDConstants.LR_SWERVE_P, PIDConstants.LR_SWERVE_I, PIDConstants.LR_SWERVE_D);
+				DriveTrainConstants.LR_SWERVE_OFFSET, PIDConstants.LR_SWERVE_P,
+				PIDConstants.LR_SWERVE_I, PIDConstants.LR_SWERVE_D);
 		leftRearDrive = new DriveSubsystem("LRDPIDSubsystem",
 				RobotMap.LRDEncoder, RobotMap.LRDSpeedController);
 		gyroRangefinder = new GyroRangefinder();
@@ -81,6 +88,7 @@ public class Robot extends IterativeRobot {
 		canPickupSubsystem = new CanSubsystem();
 		frontTotePickupSubsystem = new FrontToteSubsystem();
 		sideTotePickupSubsystem = new SideToteSubsystem();
+		lifterCamSubsystem = new LifterCamSubsystem();
 
 		// This MUST be here. If the OI creates Commands (which it very likely
 		// will), constructing it during the construction of CommandBase (from
@@ -103,7 +111,8 @@ public class Robot extends IterativeRobot {
 		// // open the camera at the IP address assigned. This is the IP address
 		// // that the camera
 		// // can be accessed through the web interface.
-		// camera = new AxisCamera("10.28.39.14");
+		camera = new AxisCamera("axis-2839.local");
+		camera2 = new AxisCamera("axis2-2839.local");
 	}
 
 	public void autonomousInit() {
@@ -127,7 +136,7 @@ public class Robot extends IterativeRobot {
 		updateStatus(); // added in SD video
 		if (autonomousCommand != null)
 			autonomousCommand.cancel();
-//		 rect = new NIVision.Rect(10, 10, 100, 100);
+		// rect = new NIVision.Rect(10, 10, 100, 100);
 	}
 
 	/**
@@ -135,9 +144,8 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
-		RobotMap.LRDSpeedController.set(0.3);
 		updateStatus(); // added in SD video
-//		 camera.getImage(frame);
+		// camera.getImage(frame);
 		// NIVision.imaqDrawShapeOnImage(frame, frame, rect,
 		// DrawMode.DRAW_VALUE,
 		// ShapeMode.SHAPE_OVAL, 0.0f);

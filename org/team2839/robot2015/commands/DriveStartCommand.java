@@ -39,7 +39,8 @@ public class DriveStartCommand extends Command {
 		Robot.leftRearSwerve.setSetpoint(0);
 
 		double speed = OI.driveJoystick.getY()
-				* DriveTrainConstants.DRIVE_STRAIGHT_MULTIPLIER * OI.getNormalThrottle();
+				* DriveTrainConstants.DRIVE_STRAIGHT_MULTIPLIER
+				* OI.getNormalThrottle();
 		GenericCommands.setDriveSetpoint(speed);
 	}
 
