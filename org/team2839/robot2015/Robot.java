@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj.IterativeRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.vision.AxisCamera;
 
 /**
@@ -144,6 +145,9 @@ public class Robot extends IterativeRobot {
 	 */
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		RobotMap.frontTotePickupMotor.set(OI.operatorJoystick.getLeftY() * 0.5);
+		SmartDashboard.putBoolean("Switch",
+				RobotMap.lifterCamZeroLimitSwitch.get());
 		updateStatus(); // added in SD video
 		// camera.getImage(frame);
 		// NIVision.imaqDrawShapeOnImage(frame, frame, rect,
@@ -179,5 +183,6 @@ public class Robot extends IterativeRobot {
 		canPickupSubsystem.updateStatus();
 		frontTotePickupSubsystem.updateStatus();
 		sideTotePickupSubsystem.updateStatus();
+		lifterCamSubsystem.updateStatus();
 	}
 }

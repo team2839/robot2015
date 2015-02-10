@@ -47,4 +47,9 @@ public class SpecificCommands {
 	public static SideToteLiftCommand sideToteLifterToTopCommand = new SideToteLiftCommand(
 			GeneralConstants.TWISTY_POT_MAX_VOLTAGE);
 
+	public static LifterCamMoveCommand camInCommand = new LifterCamMoveCommand(
+			GeneralConstants.CAM_IN_POSITION);
+	public static LifterCamMoveCommand camOutCommand = new LifterCamMoveCommand(
+			GeneralConstants.CAM_OUT_POSITION);
+
 }

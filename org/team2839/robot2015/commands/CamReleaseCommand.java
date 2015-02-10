@@ -11,12 +11,12 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 public class CamReleaseCommand extends CommandGroup {
 
 	public CamReleaseCommand() {
-		addSequential(new LifterCamMoveCommand(
-				GeneralConstants.CAM_OUT_POSITION));
+		addSequential(new LifterCamMoveCommand(GeneralConstants.CAM_IN_POSITION));
 		addSequential(new FrontToteLiftCommand(
 				Robot.frontTotePickupSubsystem.getPosition()
 						+ GeneralConstants.CAM_RELEASE_LIFTER_DOWN_DISTANCE));
-		addSequential(new LifterCamMoveCommand(GeneralConstants.CAM_IN_POSITION));
+		addSequential(new LifterCamMoveCommand(
+				GeneralConstants.CAM_OUT_POSITION));
 		// Add Commands here:
 		// e.g. addSequential(new Command1());
 		// addSequential(new Command2());

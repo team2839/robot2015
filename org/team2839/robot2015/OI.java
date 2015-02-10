@@ -1,6 +1,7 @@
 package org.team2839.robot2015;
 
 import org.team2839.robot2015.autonomousCommands.AutonomousCommandGroup;
+import org.team2839.robot2015.commands.CamReleaseCommand;
 import org.team2839.robot2015.commands.DriveSpinCommand;
 import org.team2839.robot2015.commands.DriveStartCommand;
 import org.team2839.robot2015.commands.DriveStopCommand;
@@ -66,8 +67,7 @@ public class OI {
 		camInButton.whenReleased(new LifterCamMoveCommand(
 				GeneralConstants.CAM_IN_POSITION));
 		camOutButton = new JoystickButton(operatorJoystick, Gamepad.BUTTON_X);
-		camOutButton.whenReleased(new LifterCamMoveCommand(
-				GeneralConstants.CAM_OUT_POSITION));
+		camOutButton.whenReleased(new CamReleaseCommand());
 
 		SmartDashboard.putData("Autonomous Command",
 				new AutonomousCommandGroup());

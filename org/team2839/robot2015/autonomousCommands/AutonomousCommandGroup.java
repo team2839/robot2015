@@ -1,5 +1,7 @@
 package org.team2839.robot2015.autonomousCommands;
 
+import org.team2839.robot2015.commands.CamInitCommand;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
@@ -28,15 +30,16 @@ public class AutonomousCommandGroup extends CommandGroup {
 		// e.g. if Command1 requires chassis, and Command2 requires arm,
 		// a CommandGroup containing them would require both the chassis and the
 		// arm.
-		addSequential(new AutonomousLiftToteCommand());
-		addSequential(new AutonomousBackupCommand());
-		addParallel(new AutonomousDropToteCommand());
-		addSequential(new AutonomousMoveLeftCommand()); // DONE
-		addSequential(new AutonomousMoveForwardCommand());
-		addSequential(new AutonomousBackupCommand());
-		addParallel(new AutonomousMoveLeftCommand());
-		addSequential(new AutonomousPushToteCommand());
-		addSequential(new AutonomousDropToteCommand());
-		addSequential(new AutonomousBackOffCommand());
+		addParallel(new CamInitCommand());
+		// addSequential(new AutonomousLiftToteCommand());
+		// addSequential(new AutonomousBackupCommand());
+		// addParallel(new AutonomousDropToteCommand());
+		// addSequential(new AutonomousMoveLeftCommand()); // DONE
+		// addSequential(new AutonomousMoveForwardCommand());
+		// addSequential(new AutonomousBackupCommand());
+		// addSequential(new AutonomousMoveLeftCommand());
+		// addSequential(new AutonomousPushToteCommand());
+		// addSequential(new AutonomousDropToteCommand());
+		// addSequential(new AutonomousBackOffCommand());
 	}
 }

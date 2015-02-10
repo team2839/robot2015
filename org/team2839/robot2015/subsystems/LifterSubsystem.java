@@ -19,17 +19,16 @@ public class LifterSubsystem extends PIDSubsystem {
 
 	// Initialize your subsystem here
 	public LifterSubsystem(String name, AnalogInput pot,
-			SpeedController speedController, double offset) {
-		super(name, PIDConstants.LIFTER_P, PIDConstants.LIFTER_I,
-				PIDConstants.LIFTER_D);
+			SpeedController speedController, double offset, double p, double i,
+			double d, double outmin, double outmax) {
+		super(name, p, i, d);
 		this.pot = pot;
 		this.speedController = speedController;
 		this.offset = offset;
 		setAbsoluteTolerance(PIDConstants.LIFTER_ABSOLUTE_TOLERANCE);
 		LiveWindow.addActuator("CanLifterSubsystem", "PIDSubsystem Controller",
 				getPIDController());
-		getPIDController().setOutputRange(PIDConstants.LIFTER_OUTPUT_MIN,
-				PIDConstants.LIFTER_OUTPUT_MAX);
+		getPIDController().setOutputRange(outmin, outmax);
 		getPIDController().setInputRange(PIDConstants.LIFTER_INPUT_MIN,
 				PIDConstants.LIFTER_INPUT_MAX);
 	}

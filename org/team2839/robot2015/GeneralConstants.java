@@ -3,10 +3,10 @@ package org.team2839.robot2015;
 public class GeneralConstants {
 
 	public static final int FRONT_TOTE_PICKUP_MOTOR = 8;
-	public static final int SIDE_TOTE_PICKUP_MOTOR = 9;
+	public static final int SIDE_TOTE_PICKUP_MOTOR = 17;
 	public static final int CAN_PICKUP_MOTOR = 18; // DIO 22
 	public static final int TURRET_MOTOR = 19; // DIO 23
-	public static final int CAM_MOTOR = 17; // DIO 21
+	public static final int CAM_MOTOR = 9; // DIO 21
 
 	public static final int FRONT_TOTE_PICKUP_POT = 4;
 	public static final int SIDE_TOTE_PICKUP_POT = 5;
@@ -86,7 +86,7 @@ public class GeneralConstants {
 	public static final double SIDE_TOTE_PICKUP_POSITION = 26.0;
 
 	public static final double CAM_IN_POSITION = 0.0;
-	public static final double CAM_OUT_POSITION = 100.0;
+	public static final double CAM_OUT_POSITION = -50.0;
 	public static final double CAM_RELEASE_LIFTER_DOWN_DISTANCE = 1.0 * FRONT_TOTE_PICKUP_DOWN_DIRECTION;
 
 	public static final double CAM_OUT_DIRECTION = 1.0;

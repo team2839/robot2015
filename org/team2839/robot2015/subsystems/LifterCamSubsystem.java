@@ -3,6 +3,7 @@ package org.team2839.robot2015.subsystems;
 import org.team2839.robot2015.PIDConstants;
 import org.team2839.robot2015.PositionalQuadEncoder;
 import org.team2839.robot2015.RobotMap;
+import org.team2839.robot2015.commands.LifterCamStopCommand;
 
 import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.SpeedController;
@@ -25,7 +26,7 @@ public class LifterCamSubsystem extends PIDSubsystem {
 		encoder = RobotMap.lifterCamEncoder;
 		speedController = RobotMap.lifterCamMotor;
 		setAbsoluteTolerance(PIDConstants.CAM_ABSOLUTE_TOLERANCE);
-		// getPIDController().setContinuous(true); // Probably a bad idea
+		getPIDController().setContinuous(true);
 		LiveWindow.addActuator("LifterCamSubsystem", "PIDSubsystem Controller",
 				getPIDController());
 		getPIDController().setOutputRange(PIDConstants.CAM_OUTPUT_MIN,
@@ -35,7 +36,7 @@ public class LifterCamSubsystem extends PIDSubsystem {
 	}
 
 	public void initDefaultCommand() {
-		// setDefaultCommand(new LifterCamStopCommand());
+		setDefaultCommand(new LifterCamStopCommand());
 	}
 
 	protected double returnPIDInput() {
